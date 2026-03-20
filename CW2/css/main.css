@@ -1,0 +1,45 @@
+body 
+{
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+nav a 
+{
+  margin-right: 10px;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  background-color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.95em;
+}
+
+#emailError {
+  display: block;
+  color: red;
+  font-size: 0.9em;
+  height: 1.2em;        
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
