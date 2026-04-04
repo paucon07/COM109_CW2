@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verdana Retreat – Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div class="bg-layer bg-forest"></div>
+  <div class="bg-layer bg-grain"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo-placeholder"><div class="logo-box">Logo</div></div>
+    <ul class="nav-links">
+      <li><a href="#">Nav Link</a></li>
+      <li><a href="#spa">Spa &amp; Pools</a></li>
+      <li><a href="#gym">Wellness Gym</a></li>
+      <li><a href="#booking">Book Now</a></li>
+      <li><a href="#">Nav Link</a></li>
+    </ul>
+    <button class="nav-book-btn" id="navBookBtn">[ Button ]</button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-image-wrap">
+      <div class="img-placeholder hero-img-placeholder">
+        <span class="img-icon">🌿</span>
+        <p>Hero Image<br><small>Aerial view of resort nestled in forest</small></p>
+      </div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">A sanctuary of stillness</p>
+      <h1 class="hero-title">Restore.<br>Revive.<br>Return to Nature.</h1>
+      <p class="hero-sub">Immerse yourself in restorative experiences crafted from the wild heart of the forest.</p>
+      <a href="#booking" class="btn-primary">Explore &amp; Book</a>
+    </div>
+    <div class="hero-scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+  </header>
+
+  <!-- INTRO STRIP -->
+  <section class="intro-strip">
+    <div class="strip-item"><span class="strip-icon">🌲</span><p>600 Acres of Private Wilderness</p></div>
+    <div class="strip-divider"></div>
+    <div class="strip-item"><span class="strip-icon">💧</span><p>Geothermal Mineral Pools</p></div>
+    <div class="strip-divider"></div>
+    <div class="strip-item"><span class="strip-icon">🌄</span><p>Open Daily, Sunrise to Sunset</p></div>
+    <div class="strip-divider"></div>
+    <div class="strip-item"><span class="strip-icon">🍃</span><p>All-Natural Wellness Programmes</p></div>
+  </section>
+
+  <!-- SPA SECTION -->
+  <section id="spa" class="service-section">
+    <div class="service-media">
+      <div class="img-placeholder service-img-placeholder"><span class="img-icon">🏊</span><p>Spa Pool Image<br><small>Steaming mineral pool surrounded by forest</small></p></div>
+      <div class="img-placeholder service-img-sm"><span class="img-icon">🌸</span><p>Treatment room</p></div>
+    </div>
+    <div class="service-content">
+      <p class="section-eyebrow">01 — Spa &amp; Thermal Pools</p>
+      <h2 class="section-title">Heal in the warmth<br><em>of the earth</em></h2>
+      <p class="body-text">Drawn from 400 metres below the forest floor, our geothermal mineral pools carry a rich blend of magnesium, silica, and potassium — each one a natural remedy for tired muscles and an overworked mind. Step beneath the open sky and let the landscape do its ancient work.</p>
+      <p class="body-text">Our spa complex houses five distinct thermal pools ranging from 36°C to 42°C, alongside cold plunge baths, a Finnish sauna, and a hand-built steam room lined with local cedar. Private pool alcoves can be reserved for couples or small groups seeking absolute seclusion.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="feature-dot"></span>5 mineral thermal pools</div>
+        <div class="feature-item"><span class="feature-dot"></span>Cedar sauna &amp; steam room</div>
+        <div class="feature-item"><span class="feature-dot"></span>Cold plunge experience</div>
+        <div class="feature-item"><span class="feature-dot"></span>Couples' private alcoves</div>
+        <div class="feature-item"><span class="feature-dot"></span>Forest-view relaxation deck</div>
+        <div class="feature-item"><span class="feature-dot"></span>Massage therapy suites</div>
+      </div>
+      <a href="#booking" class="btn-outline book-service-btn" data-service="Spa & Thermal Pools">Book Spa Experience</a>
+    </div>
+  </section>
+
+  <!-- SPA GALLERY -->
+  <div class="gallery-strip">
+    <div class="img-placeholder gallery-img"><span class="img-icon">🌊</span><p>Pool at dusk</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">🕯️</span><p>Treatment candles</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">🍵</span><p>Herbal ritual</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">🌙</span><p>Night soak</p></div>
+  </div>
+
+  <!-- GYM SECTION -->
+  <section id="gym" class="service-section">
+    <div class="service-content right-content">
+      <p class="section-eyebrow">02 — Wellness Gym</p>
+      <h2 class="section-title">Strength forged<br><em>in the wild</em></h2>
+      <p class="body-text">Our open-air and glass-walled gymnasium sits at the edge of the old-growth forest, offering a training environment unlike any other. Floor-to-ceiling Douglas fir frames panoramic views of the valley below — a constant reminder of our connection to the natural world.</p>
+      <p class="body-text">Designed with intention rather than excess, the gym pairs premium free weights with a dedicated movement studio for yoga, Pilates, and breathwork. Personal coaching sessions with our resident wellness practitioners are available by arrangement.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="feature-dot"></span>Free weights &amp; functional training</div>
+        <div class="feature-item"><span class="feature-dot"></span>Panoramic forest-view studio</div>
+        <div class="feature-item"><span class="feature-dot"></span>Yoga &amp; breathwork classes</div>
+        <div class="feature-item"><span class="feature-dot"></span>Pilates reformer equipment</div>
+        <div class="feature-item"><span class="feature-dot"></span>Personal wellness coaching</div>
+        <div class="feature-item"><span class="feature-dot"></span>Outdoor training circuits</div>
+      </div>
+      <a href="#booking" class="btn-outline book-service-btn" data-service="Wellness Gym">Book Gym Session</a>
+    </div>
+    <div class="service-media right-media">
+      <div class="img-placeholder service-img-placeholder"><span class="img-icon">🏋️</span><p>Gym Image<br><small>Open-plan gym overlooking forest valley</small></p></div>
+      <div class="img-placeholder service-img-sm"><span class="img-icon">🧘</span><p>Yoga studio</p></div>
+    </div>
+  </section>
+
+  <!-- GYM GALLERY -->
+  <div class="gallery-strip gym-gallery">
+    <div class="img-placeholder gallery-img"><span class="img-icon">🏃</span><p>Outdoor circuit</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">🌅</span><p>Dawn yoga</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">💪</span><p>Weight training</p></div>
+    <div class="img-placeholder gallery-img"><span class="img-icon">🍃</span><p>Forest walk</p></div>
+  </div>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking-section">
+    <div class="booking-bg-img"><div class="img-placeholder booking-img-placeholder"><span class="img-icon">🌲</span><p>Forest path image</p></div></div>
+    <div class="booking-overlay"></div>
+    <div class="booking-container">
+      <div class="booking-header">
+        <p class="section-eyebrow light-eyebrow">Reserve Your Experience</p>
+        <h2 class="booking-title">Begin your<br><em>restoration</em></h2>
+        <p class="booking-subtitle">All bookings include access to the forest trail network and a complimentary herbal welcome tea.</p>
+      </div>
+      <div class="booking-card">
+        <div class="progress-steps">
+          <div class="step active" data-step="1"><span class="step-num">1</span><span class="step-label">Service</span></div>
+          <div class="step-line"></div>
+          <div class="step" data-step="2"><span class="step-num">2</span><span class="step-label">Details</span></div>
+          <div class="step-line"></div>
+          <div class="step" data-step="3"><span class="step-num">3</span><span class="step-label">Confirm</span></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="booking-step" id="step1">
+          <h3 class="step-title">Choose Your Experience</h3>
+          <div class="service-cards">
+            <div class="service-card" data-value="Spa & Thermal Pools" data-price="50">
+              <div class="card-img-placeholder"><span>💧</span></div>
+              <h4>Spa &amp; Thermal Pools</h4>
+              <p>Full day access to all five mineral pools, sauna, and steam room.</p>
+              <p class="card-price">£50 per person</p>
+            </div>
+            <div class="service-card" data-value="Wellness Gym" data-price="15">
+              <div class="card-img-placeholder"><span>🏋️</span></div>
+              <h4>Wellness Gym</h4>
+              <p>Full day gym access including one group fitness class.</p>
+              <p class="card-price">£15 per person</p>
+            </div>
+            <div class="service-card" data-value="Thermal Pool" data-price="10">
+              <div class="card-img-placeholder"><span>🏊</span></div>
+              <h4>Thermal Pool</h4>
+              <p>Entry to our outdoor geothermal mineral pool. Open sunrise to sunset.</p>
+              <p class="card-price">£10 per person</p>
+            </div>
+            <div class="service-card bundle-card" data-value="Full Bundle (Spa + Gym + Pool)" data-price="67.5">
+              <div class="card-img-placeholder bundle-img"><span>🌿</span></div>
+              <h4>Full Bundle</h4>
+              <p>Spa, Gym &amp; Thermal Pool — all three experiences in one day.</p>
+              <p class="card-price">£67.50 <span class="discount-badge">10% off</span></p>
+              <p class="card-was">Was £75 per person</p>
+            </div>
+          </div>
+          <button class="btn-primary" id="nextToStep2" disabled>Continue</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="booking-step hidden" id="step2">
+          <h3 class="step-title">Your Details</h3>
+          <div class="form-grid">
+            <div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" placeholder="e.g. Eleanor" /></div>
+            <div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" placeholder="e.g. Walsh" /></div>
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com" /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="+44 7700 000000" /></div>
+            <div class="form-group"><label for="bookDate">Preferred Date</label><input type="date" id="bookDate" /></div>
+            <div class="form-group">
+              <label for="guests">Number of Guests</label>
+              <select id="guests">
+                <option value="">Select…</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+              </select>
+            </div>
+            <div class="form-group full-width"><label for="notes">Special Requests or Notes</label><textarea id="notes" rows="3" placeholder="Any dietary requirements, mobility needs, or celebrations to note…"></textarea></div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-ghost" id="backToStep1">← Back</button>
+            <button class="btn-primary" id="nextToStep3">Review Booking</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="booking-step hidden" id="step3">
+          <h3 class="step-title">Review &amp; Confirm</h3>
+          <div class="summary-box">
+            <div class="summary-row"><span>Experience</span><strong id="sumService">—</strong></div>
+            <div class="summary-row"><span>Name</span><strong id="sumName">—</strong></div>
+            <div class="summary-row"><span>Email</span><strong id="sumEmail">—</strong></div>
+            <div class="summary-row"><span>Date</span><strong id="sumDate">—</strong></div>
+            <div class="summary-row"><span>Guests</span><strong id="sumGuests">—</strong></div>
+            <div class="summary-row"><span>Estimated Total</span><strong id="sumPrice">—</strong></div>
+            <div class="summary-row" id="sumNotesRow"><span>Notes</span><strong id="sumNotes">—</strong></div>
+          </div>
+          <p class="confirm-note">Our team will contact you within 24 hours to confirm availability and arrange payment. No card details required at this stage.</p>
+          <div class="step-nav">
+            <button class="btn-ghost" id="backToStep2">← Back</button>
+            <button class="btn-primary" id="submitBooking">Confirm Reservation</button>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="booking-step hidden" id="stepSuccess">
+          <div class="success-icon">✦</div>
+          <h3 class="step-title">You're booked in</h3>
+          <p class="body-text" style="text-align:center;">Thank you for choosing Verdana Retreat. A confirmation has been sent to your email. We look forward to welcoming you into the wild.</p>
+          <button class="btn-outline" id="resetBooking">Make Another Booking</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-logo-placeholder">Logo</div>
+    <p class="footer-tagline">[ Your resort tagline goes here ]</p>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <p class="footer-col-heading">[ Column Heading ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-heading">[ Column Heading ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-heading">[ Column Heading ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+        <p class="footer-col-link">[ Link ]</p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-copy">© 2026 Verdana Retreat. All rights reserved.</p>
+      <p class="footer-legal-text">All content on this website, including text, images, graphics, logos, and service descriptions, is the exclusive intellectual property of Verdana Retreat and is protected under applicable copyright law. Unauthorised reproduction, distribution, or modification of any material — in whole or in part — without prior written permission is strictly prohibited. The Verdana Retreat name and associated branding are registered trademarks. Prices are per person and subject to availability. Verdana Retreat reserves the right to amend pricing and offers without notice. Bundle discount applies only when all three services are booked simultaneously for the same date and number of guests.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
