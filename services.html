@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verdana Retreat – Services</title>
-
+  <title>Evergreen Retreat – Services</title>
   <link rel="stylesheet" href="css/services.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -12,14 +11,14 @@
 
 <body>
 
-<!-- NAV PLACEHOLDER -->
-<nav class="nav-placeholder">
+<!-- NAV -->
+<nav id="navbar" class="nav-placeholder">
   Navigation Placeholder
+  <button id="navBookBtn">Book Now</button>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="hero-img"></div>
+<header class="hero" style="background-image: url('assets/HERO-IMAGE.jpg');">
   <div class="hero-content">
     <h1>Restore. Revive. Return.</h1>
     <p>Reconnect with nature through curated wellness experiences.</p>
@@ -28,13 +27,13 @@
 </header>
 
 <!-- SPA -->
-<section id="spa" class="section">
+<section id="spa" class="section" style="background-image: url('assets/SPA-IMAGE.jpg');">
   <h2>Spa & Thermal Pools</h2>
   <p>Immerse yourself in natural geothermal waters designed to restore body and mind.</p>
 </section>
 
 <!-- GYM -->
-<section id="gym" class="section alt">
+<section id="gym" class="section alt" style="background-image: url('assets/GYM-IMAGE.jpg');">
   <h2>Wellness Gym</h2>
   <p>Train in a calm, nature-connected environment with modern equipment.</p>
 </section>
@@ -70,6 +69,7 @@
         <option>2</option>
       </select>
 
+      <button id="backToStep1">Back</button>
       <button id="nextToStep3">Review</button>
     </div>
 
@@ -83,6 +83,7 @@
 
     <div id="success" class="hidden">
       <h3>Booked ✔</h3>
+      <button id="resetBooking">Start Over</button>
     </div>
 
   </div>

@@ -12,7 +12,7 @@ body {
   color: var(--dark);
 }
 
-/* NAV PLACEHOLDER */
+/* NAV */
 .nav-placeholder {
   padding: 1rem;
   text-align: center;
@@ -29,13 +29,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.hero-img {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, #aed6f1, #d6eaf8);
-  z-index: -1;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-content {
@@ -57,10 +52,12 @@ body {
 .section {
   padding: 4rem 2rem;
   text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .section.alt {
-  background: #eef6fc;
+  background-color: #eef6fc;
 }
 
 h2 {
@@ -87,7 +84,7 @@ h2 {
   border-radius: 6px;
 }
 
-/* SERVICE CARD */
+/* SERVICE CARDS */
 .service-card {
   padding: 1rem;
   border: 1px solid #ddd;
