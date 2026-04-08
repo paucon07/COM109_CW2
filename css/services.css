@@ -4,7 +4,11 @@
   --dark: #1a3a4a;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Jost', sans-serif;
@@ -33,6 +37,10 @@ body {
   background-position: center;
 }
 
+.hero-bg {
+  background-image: url('../assets/massage.jpg');
+}
+
 .hero-content {
   max-width: 500px;
 }
@@ -45,19 +53,34 @@ body {
 
 .hero p {
   margin-bottom: 1.5rem;
-  color: #4a6b82;
+  color: rgba(255,255,255,0.9);
 }
 
 /* SECTIONS */
 .section {
+  min-height: 50vh;
   padding: 4rem 2rem;
   text-align: center;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.section.alt {
-  background-color: #eef6fc;
+.spa-bg {
+  background-image: url('../assets/spa.jpg');
+}
+
+.gym-bg {
+  background-image: url('../assets/gym.jpg');
+}
+
+.section h2,
+.section p {
+  color: white;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 
 h2 {
@@ -65,8 +88,9 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* BUTTON */
-.btn, button {
+/* BUTTONS */
+button,
+.btn {
   padding: 0.7rem 1.5rem;
   border: none;
   background: var(--blue);
@@ -75,13 +99,24 @@ h2 {
   border-radius: 4px;
 }
 
+button:focus {
+  outline: 2px solid var(--blue);
+}
+
 /* BOOKING */
 .booking-card {
   background: white;
   padding: 2rem;
   max-width: 400px;
+  width: 100%;
   margin: auto;
   border-radius: 6px;
+}
+
+.booking-card h3,
+.booking-card p {
+  color: var(--dark);
+  text-shadow: none;
 }
 
 /* SERVICE CARDS */
@@ -91,6 +126,8 @@ h2 {
   margin: 0.5rem 0;
   cursor: pointer;
   transition: 0.2s;
+  color: var(--dark);
+  background: white;
 }
 
 .service-card:hover {
@@ -103,14 +140,27 @@ h2 {
 }
 
 /* FORM */
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.6rem;
   margin: 0.5rem 0;
   border: 1px solid #ccc;
+  color: var(--dark);
 }
 
 /* HIDDEN */
 .hidden {
   display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
 }

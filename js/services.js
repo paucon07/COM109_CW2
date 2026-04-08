@@ -9,38 +9,49 @@ $(function () {
   });
 
   // SCROLL
-  $('a[href^="#"], #navBookBtn').click(function (e) {
+  $('a[href^="#"], #navBookBtn').on('click', function (e) {
     e.preventDefault();
     const target = $(this).attr('href') || '#booking';
-    $('html, body').animate({
-      scrollTop: $(target).offset().top - 60
-    }, 500);
+
+    if ($(target).length) {
+      $('html, body').animate({
+        scrollTop: $(target).offset().top - 60
+      }, 500);
+    }
   });
 
   // SERVICE SELECT
-  $('.service-card').click(function () {
+  $(document).on('click', '.service-card', function (e) {
+    e.preventDefault();
+
     $('.service-card').removeClass('selected');
     $(this).addClass('selected');
 
     selectedService = $(this).data('value');
-    price = $(this).data('price');
+    price = Number($(this).data('price'));
 
     $('#nextToStep2').prop('disabled', false);
   });
 
   // STEP NAVIGATION
   function goTo(step) {
-    $('#step1, #step2, #step3').addClass('hidden');
+    $('#step1, #step2, #step3, #success').addClass('hidden');
     $('#step' + step).removeClass('hidden');
   }
 
-  $('#nextToStep2').click(() => goTo(2));
-  $('#backToStep1').click(() => goTo(1));
+  $('#nextToStep2').on('click', function () {
+    if (!selectedService) return;
+    goTo(2);
+  });
 
-  $('#nextToStep3').click(function () {
-    if (!$('#firstName').val() || !$('#email').val()) return;
+  $('#backToStep1').on('click', function () {
+    goTo(1);
+  });
 
-    const guests = $('#guests').val() || 1;
+  $('#nextToStep3').on('click', function () {
+    if (!$('#firstName').val() || !$('#email').val() || !$('#bookDate').val() || !$('#guests').val()) return;
+
+    const guests = Number($('#guests').val());
     const total = price * guests;
 
     $('#sumService').text(selectedService);
@@ -50,13 +61,13 @@ $(function () {
   });
 
   // SUBMIT
-  $('#submitBooking').click(function () {
+  $('#submitBooking').on('click', function () {
     $('#step3').addClass('hidden');
     $('#success').removeClass('hidden');
   });
 
   // RESET
-  $('#resetBooking').click(function () {
+  $('#resetBooking').on('click', function () {
     location.reload();
   });
 

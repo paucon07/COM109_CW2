@@ -6,7 +6,6 @@
   <title>Evergreen Retreat – Services</title>
   <link rel="stylesheet" href="css/services.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -14,11 +13,10 @@
 <!-- NAV -->
 <nav id="navbar" class="nav-placeholder">
   Navigation Placeholder
-  <button id="navBookBtn">Book Now</button>
 </nav>
 
 <!-- HERO -->
-<header class="hero" style="background-image: url('assets/HERO-IMAGE.jpg');">
+<header class="hero hero-bg">
   <div class="hero-content">
     <h1>Restore. Revive. Return.</h1>
     <p>Reconnect with nature through curated wellness experiences.</p>
@@ -27,13 +25,13 @@
 </header>
 
 <!-- SPA -->
-<section id="spa" class="section" style="background-image: url('assets/SPA-IMAGE.jpg');">
+<section id="spa" class="section spa-bg">
   <h2>Spa & Thermal Pools</h2>
   <p>Immerse yourself in natural geothermal waters designed to restore body and mind.</p>
 </section>
 
 <!-- GYM -->
-<section id="gym" class="section alt" style="background-image: url('assets/GYM-IMAGE.jpg');">
+<section id="gym" class="section gym-bg">
   <h2>Wellness Gym</h2>
   <p>Train in a calm, nature-connected environment with modern equipment.</p>
 </section>
@@ -45,13 +43,13 @@
     <div id="step1">
       <h3>Choose Experience</h3>
 
-      <div class="service-card" data-value="Spa & Thermal Pools" data-price="50">
+      <button class="service-card" type="button" data-value="Spa & Thermal Pools" data-price="50">
         Spa & Thermal Pools — £50
-      </div>
+      </button>
 
-      <div class="service-card" data-value="Wellness Gym" data-price="15">
+      <button class="service-card" type="button" data-value="Wellness Gym" data-price="15">
         Wellness Gym — £15
-      </div>
+      </button>
 
       <button id="nextToStep2" disabled>Continue</button>
     </div>
@@ -59,12 +57,18 @@
     <div id="step2" class="hidden">
       <h3>Your Details</h3>
 
-      <input id="firstName" placeholder="First Name">
-      <input id="email" placeholder="Email">
-      <input type="date" id="bookDate">
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" required>
 
-      <select id="guests">
-        <option value="">Guests</option>
+      <label for="email">Email</label>
+      <input id="email" type="email" required>
+
+      <label for="bookDate">Date</label>
+      <input type="date" id="bookDate" required>
+
+      <label for="guests">Guests</label>
+      <select id="guests" required>
+        <option value="">Select</option>
         <option>1</option>
         <option>2</option>
       </select>
@@ -89,6 +93,7 @@
   </div>
 </section>
 
+<script src="js/jquery.js"></script>
 <script src="js/services.js"></script>
 </body>
 </html>
