@@ -4,11 +4,7 @@
   --dark: #1a3a4a;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Jost', sans-serif;
@@ -49,61 +45,79 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
 }
 
 .hero p {
   margin-bottom: 1.5rem;
-  color: rgba(255,255,255,0.9);
+  color: white;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
-/* SECTIONS */
-.section {
+/* SERVICE ROWS */
+.service-row {
+  display: flex;
   min-height: 50vh;
-  padding: 4rem 2rem;
-  text-align: center;
+}
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-img {
+  flex: 1;
   background-size: cover;
   background-position: center;
+  min-height: 350px;
+}
+
+.service-text {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  padding: 4rem 3rem;
+  background: white;
 }
 
-.spa-bg {
-  background-image: url('../assets/spa.jpg');
-}
-
-.gym-bg {
-  background-image: url('../assets/gym.jpg');
-}
-
-.section h2,
-.section p {
-  color: white;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-}
-
-h2 {
+.service-text h2 {
   font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--dark);
 }
 
-/* BUTTONS */
-button,
-.btn {
+.service-text p {
+  line-height: 1.8;
+  color: #4a6b82;
+  margin-bottom: 2rem;
+}
+
+/* BACKGROUND IMAGES */
+.spa-bg      { background-image: url('../assets/spa.jpg'); }
+.thermal-bg  { background-image: url('../assets/thermalpool.jpg'); }
+.gym-bg      { background-image: url('../assets/gym.jpg'); }
+
+/* BUTTON */
+.btn, button {
   padding: 0.7rem 1.5rem;
   border: none;
   background: var(--blue);
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
 }
 
-button:focus {
-  outline: 2px solid var(--blue);
+/* BOOKING SECTION */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--light);
 }
 
-/* BOOKING */
 .booking-card {
   background: white;
   padding: 2rem;
@@ -114,13 +128,15 @@ button:focus {
 }
 
 .booking-card h3,
-.booking-card p {
+.booking-card p,
+.booking-card label {
   color: var(--dark);
-  text-shadow: none;
 }
 
 /* SERVICE CARDS */
 .service-card {
+  display: block;
+  width: 100%;
   padding: 1rem;
   border: 1px solid #ddd;
   margin: 0.5rem 0;
@@ -128,39 +144,47 @@ button:focus {
   transition: 0.2s;
   color: var(--dark);
   background: white;
+  text-align: left;
+  border-radius: 4px;
 }
 
-.service-card:hover {
-  background: #eef6fc;
-}
-
+.service-card:hover { background: #eef6fc; }
 .service-card.selected {
   background: #d6eaf8;
   border-color: var(--blue);
 }
 
 /* FORM */
-input,
-select {
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+input, select {
   width: 100%;
   padding: 0.6rem;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0 0.8rem;
   border: 1px solid #ccc;
   color: var(--dark);
 }
 
 /* HIDDEN */
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
+@media (max-width: 768px) {
+  .service-row,
+  .service-row.reverse {
+    flex-direction: column;
   }
 
-  .section {
-    padding: 2rem 1rem;
+  .service-img {
+    min-height: 250px;
+  }
+
+  .service-text {
+    padding: 2rem 1.5rem;
   }
 }
