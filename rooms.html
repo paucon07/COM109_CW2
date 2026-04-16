@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/rooms.css">
+    <title>Evergreen Retreat - Rooms</title>
+</head>
+
+<body>
+<!-- navbar -->
+<nav id="navbar" class="navbar">
+  <div class="nav-container">
+
+    <div class="logo">
+      Evergreen Retreat
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <!-- add other links here-->
+    </ul>
+
+  </div>
+</nav>
+
+<div class="rooms-container">
+
+    <div class="room" onclick="selectRoom(this, 'Standard Room', 80)">
+        <h2>Standard Room</h2>
+        <p>A cosy room with all the essentials for a comfortable stay.</p>
+        <p>Price: £80 per night</p>
+    </div>
+
+    <div class="room" onclick="selectRoom(this, 'Deluxe Room', 120)">
+        <h2>Deluxe Room</h2>
+        <p>A spacious room with premium furnishings and premium views.</p>
+        <p>Price: £120 per night</p>
+    </div>
+
+    <div class="room" onclick="selectRoom(this, 'Suite', 200)">
+        <h2>Suite</h2>
+        <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
+        <p>Price: £200 per night</p>
+    </div>
+
+</div>
+
+<p id="selectedRoom">No room selected</p>
+
+<button onclick="showForm()">Confirm Selection</button>
+
+<div id="bookingForm">
+    <h2>Booking Details</h2>
+
+    <label>Check-in date:</label>
+    <input id="checkin" type="date">
+
+    <label>Check-out date:</label>
+    <input id="checkout" type="date">
+
+    <label>Guests:</label>
+    <input id="guests" type="number" min="1" value="1">
+
+    <button class="confirm-btn">Submit Booking</button>
+</div>
+
+<script src="js/rooms.js"></script>
+
+</body>
+</html>
