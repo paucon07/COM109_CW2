@@ -148,7 +148,7 @@ h2 {
   padding: 0.9rem 2rem;
 }
 
-/* SLIDESHOW */
+/* slideshow */
 .slideshow {
   position: relative;
   width: 100%;
@@ -282,7 +282,7 @@ h2 {
   justify-content: center;
 }
 
-.footer input[type="email"] {
+.footer input {
   width: 200px;
   max-width: 80%;
   padding: 0.5rem 0.7rem;
@@ -305,25 +305,56 @@ h2 {
 
 .footer button:hover {
   background: #1f6fa5;
+  transform: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .home-page .hero h1 {
-    font-size: 2rem;
-  }
-
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  .review-card {
-    flex: 0 0 80%;
-  }
+/* animation was still playing for disabled button */
+button:disabled:hover {
+    background: #ccc;
+    transform: none;
+    box-shadow: none;
 }
 
-@media (max-width: 900px) {
-  .review-card {
-    flex: 0 0 250px;
-  }
+.footer span {
+  width: 100%;
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+.email-error {
+  width: 100%;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+/* error message */
+.email-error.error {
+  color: red;
+}
+
+/* success message (email valid) */
+.email-error.success {
+  color: green;
+}
+
+.email-error.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.email-error {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+input:disabled {
+  background: #f1f1f1;
+  cursor: not-allowed;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
