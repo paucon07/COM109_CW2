@@ -12,7 +12,22 @@ body {
   color: var(--dark);
 }
 
-/* navbar */
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--blue);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  z-index: 9999;
+}
+.skip-link:focus { top: 0; }
+
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -27,23 +42,16 @@ body {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
   padding: 0 2rem;
   gap: 2rem;
-}
-
-.logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  margin-right: auto;
+  width: 100%;
 }
 
 .nav-links {
-  position: static;
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin-right: auto;
 }
 
 .nav-links a {
@@ -52,8 +60,13 @@ body {
   font-size: 0.95rem;
 }
 
-.nav-links a:hover {
-  color: var(--blue);
+.nav-links a:hover { color: var(--blue); }
+.nav-links a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 /* HERO */
@@ -65,15 +78,11 @@ body {
   text-align: center;
   background-size: cover;
   background-position: center;
+  margin-top: 80px;
 }
 
-.hero-bg {
-  background-image: url('../assets/massage.jpg');
-}
-
-.hero-content {
-  max-width: 500px;
-}
+.hero-bg { background-image: url('../assets/massage.jpg'); }
+.hero-content { max-width: 500px; padding: 0 1.5rem; }
 
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
@@ -90,14 +99,8 @@ body {
 }
 
 /* SERVICE ROWS */
-.service-row {
-  display: flex;
-  min-height: 50vh;
-}
-
-.service-row.reverse {
-  flex-direction: row-reverse;
-}
+.service-row { display: flex; min-height: 50vh; }
+.service-row.reverse { flex-direction: row-reverse; }
 
 .service-img {
   flex: 1;
@@ -128,12 +131,11 @@ body {
   margin-bottom: 2rem;
 }
 
-/* BACKGROUND IMAGES */
-.spa-bg      { background-image: url('../assets/spa.jpg'); }
-.thermal-bg  { background-image: url('../assets/thermalpool.jpg'); }
-.gym-bg      { background-image: url('../assets/gym.jpg'); }
+.spa-bg     { background-image: url('../assets/spa.jpg'); }
+.thermal-bg { background-image: url('../assets/thermalpool.jpg'); }
+.gym-bg     { background-image: url('../assets/gym.jpg'); }
 
-/* BUTTON */
+/* BUTTONS */
 .btn, button {
   padding: 0.7rem 1.5rem;
   border: none;
@@ -143,9 +145,15 @@ body {
   border-radius: 4px;
   display: inline-block;
   text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
 }
 
-/* BOOKING SECTION */
+.btn:hover, button:hover { background: #236fa3; }
+.btn:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+button:disabled { background: #b0cfe0; cursor: not-allowed; }
+
+/* BOOKING */
 .section {
   padding: 4rem 2rem;
   text-align: center;
@@ -155,19 +163,20 @@ body {
 .booking-card {
   background: white;
   padding: 2rem;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   margin: auto;
   border-radius: 6px;
+  text-align: left;
 }
 
-.booking-card h3,
-.booking-card p,
-.booking-card label {
+.booking-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
   color: var(--dark);
+  margin-bottom: 1.2rem;
 }
 
-/* SERVICE CARDS */
 .service-card {
   display: block;
   width: 100%;
@@ -175,7 +184,6 @@ body {
   border: 1px solid #ddd;
   margin: 0.5rem 0;
   cursor: pointer;
-  transition: 0.2s;
   color: var(--dark);
   background: white;
   text-align: left;
@@ -183,42 +191,151 @@ body {
 }
 
 .service-card:hover { background: #eef6fc; }
-.service-card.selected {
-  background: #d6eaf8;
-  border-color: var(--blue);
+.service-card.selected { background: #d6eaf8; border-color: var(--blue); }
+
+#nextToStep2 { width: 100%; margin-top: 1rem; }
+
+.step-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.step-actions button { flex: 1; }
+.step-actions button:first-child {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid #ccc;
 }
+.step-actions button:first-child:hover { background: var(--light); }
 
 /* FORM */
 label {
   display: block;
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  text-align: left;
+  color: var(--dark);
 }
 
 input, select {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.6rem 0.75rem;
   margin: 0.3rem 0 0.8rem;
   border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(46,134,193,0.15);
+}
+
+/* SUMMARY */
+.summary-block {
+  background: var(--light);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.summary-block p {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #dde8f0;
+  font-size: 0.95rem;
   color: var(--dark);
 }
 
-/* HIDDEN */
+.summary-block p:last-child { border-bottom: none; }
+.summary-label { color: #4a6b82; font-size: 0.85rem; }
+
+/* SUCCESS */
+#success { text-align: center; padding: 1rem 0; }
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  background: #d4efdf;
+  color: #1e8449;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+}
+
+#success p { color: #4a6b82; font-size: 0.9rem; margin-bottom: 1.5rem; }
+#resetBooking { width: 100%; }
+
 .hidden { display: none; }
+
+/* FOOTER */
+footer {
+  background: #12282f;
+  color: #c8d0c9;
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-inner { max-width: 960px; margin: 0 auto; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #e8ede9;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand p { font-size: 0.85rem; color: #7a8a7b; line-height: 1.7; }
+
+footer h3 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8ede9;
+  margin-bottom: 1rem;
+}
+
+footer nav ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+footer nav ul a { font-size: 0.9rem; color: #9aaa9c; text-decoration: none; }
+footer nav ul a:hover { color: #e8ede9; }
+footer a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+footer hr { border: none; border-top: 1px solid #1f3a3f; margin: 0 0 1.5rem; }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-bottom p, .footer-bottom nav a { font-size: 0.8rem; color: #4a5e4b; }
+.footer-bottom nav { display: flex; gap: 1.5rem; }
+.footer-bottom nav a { text-decoration: none; }
+.footer-bottom nav a:hover { color: #9aaa9c; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .service-row,
-  .service-row.reverse {
-    flex-direction: column;
-  }
+  .service-row, .service-row.reverse { flex-direction: column; }
+  .service-img { min-height: 250px; }
+  .service-text { padding: 2rem 1.5rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 
-  .service-img {
-    min-height: 250px;
-  }
-
-  .service-text {
-    padding: 2rem 1.5rem;
-  }
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .step-actions { flex-direction: column; }
 }

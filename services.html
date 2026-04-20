@@ -10,124 +10,172 @@
 
 <body>
 
-<!-- navbar -->
-<nav id="navbar" class="navbar">
-  <div class="nav-container">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="logo">
-      Evergreen Retreat
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+      </ul>
+      <a href="home.html" class="logo" aria-label="Evergreen Retreat home">
+        <img src="assets/logo.png" alt="Evergreen Retreat logo" height="55">
+      </a>
     </div>
+  </nav>
 
-    <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <!-- add other links here-->
-    </ul>
-
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero hero-bg">
-  <div class="hero-content">
-    <h1>Restore. Revive. Return.</h1>
-    <p>Reconnect with nature through curated wellness experiences.</p>
-    <a href="#booking" class="btn">Book Experience</a>
-  </div>
-</header>
-
-<!-- SPA -->
-<section id="spa" class="service-row">
-  <div class="service-img spa-bg"></div>
-  <div class="service-text">
-    <h2>Spa</h2>
-    <p>Step into a sanctuary of calm rooted in the natural world. Our spa draws on botanical ingredients, warm stone, and the healing power of touch to melt away tension and restore your body from the inside out. Each treatment is tailored to you — from deep tissue massages to restorative facials using earth-sourced oils and plant extracts. Leave feeling grounded, renewed, and entirely yourself.</p>
-    <a href="#booking" class="btn">Book Now</a>
-  </div>
-</section>
-
-<!-- THERMAL POOLS -->
-<section id="thermal" class="service-row reverse">
-  <div class="service-img thermal-bg"></div>
-  <div class="service-text">
-    <h2>Thermal Pools</h2>
-    <p>Sink into the stillness of our natural thermal pools, warmed by the earth beneath your feet. Mineral-rich waters ease tension from tired muscles, improve circulation, and calm a restless mind. Whether you float beneath the open sky or ease into one of our sheltered indoor pools, the experience is one of quiet immersion in nature's most restorative element. No schedule, no rush — just water, warmth, and stillness.</p>
-    <a href="#booking" class="btn">Book Now</a>
-  </div>
-</section>
-
-<!-- GYM -->
-<section id="gym" class="service-row">
-  <div class="service-img gym-bg"></div>
-  <div class="service-text">
-    <h2>Wellness Gym</h2>
-    <p>Movement here feels different. Our wellness gym is designed to work with nature, not against it — floor-to-ceiling views of the surrounding landscape, natural light, and thoughtfully chosen equipment that encourages mindful training. Whether you're starting your morning with yoga, building strength, or simply moving your body after a long journey, this is a space that supports you without pressure or noise.</p>
-    <a href="#booking" class="btn">Book Now</a>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section id="booking" class="section">
-  <div class="booking-card">
-
-    <div id="step1">
-      <h3>Choose Experience</h3>
-
-      <button class="service-card" type="button" data-value="Spa" data-price="50">
-        Spa — £50
-      </button>
-
-      <button class="service-card" type="button" data-value="Thermal Pools" data-price="30">
-        Thermal Pools — £30
-      </button>
-
-      <button class="service-card" type="button" data-value="Wellness Gym" data-price="15">
-        Wellness Gym — £15
-      </button>
-
-      <button id="nextToStep2" disabled>Continue</button>
+  <!-- HERO -->
+  <header class="hero hero-bg">
+    <div class="hero-content">
+      <h1>Restore. Revive. Return.</h1>
+      <p>Reconnect with nature through curated wellness experiences.</p>
+      <a href="#booking" class="btn">Book Experience</a>
     </div>
+  </header>
 
-    <div id="step2" class="hidden">
-      <h3>Your Details</h3>
+  <main id="main-content">
 
-      <label for="firstName">First Name</label>
-      <input id="firstName" type="text" required>
+    <!-- SPA -->
+    <section id="spa" class="service-row" aria-labelledby="spa-heading">
+      <div class="service-img spa-bg" role="img" aria-label="Tranquil spa treatment room"></div>
+      <div class="service-text">
+        <h2 id="spa-heading">Spa</h2>
+        <p>Step into a sanctuary of calm rooted in the natural world. Our spa draws on botanical ingredients, warm stone, and the healing power of touch to melt away tension and restore your body from the inside out. Each treatment is tailored to you — from deep tissue massages to restorative facials using earth-sourced oils and plant extracts. Leave feeling grounded, renewed, and entirely yourself.</p>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+    </section>
 
-      <label for="email">Email</label>
-      <input id="email" type="email" required>
+    <!-- THERMAL POOLS -->
+    <section id="thermal" class="service-row reverse" aria-labelledby="thermal-heading">
+      <div class="service-img thermal-bg" role="img" aria-label="Natural thermal pool"></div>
+      <div class="service-text">
+        <h2 id="thermal-heading">Thermal Pools</h2>
+        <p>Sink into the stillness of our natural thermal pools, warmed by the earth beneath your feet. Mineral-rich waters ease tension from tired muscles, improve circulation, and calm a restless mind. Whether you float beneath the open sky or ease into one of our sheltered indoor pools, the experience is one of quiet immersion in nature's most restorative element. No schedule, no rush — just water, warmth, and stillness.</p>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+    </section>
 
-      <label for="bookDate">Date</label>
-      <input type="date" id="bookDate" required>
+    <!-- GYM -->
+    <section id="gym" class="service-row" aria-labelledby="gym-heading">
+      <div class="service-img gym-bg" role="img" aria-label="Wellness gym with natural light"></div>
+      <div class="service-text">
+        <h2 id="gym-heading">Wellness Gym</h2>
+        <p>Movement here feels different. Our wellness gym is designed to work with nature, not against it — floor-to-ceiling views of the surrounding landscape, natural light, and thoughtfully chosen equipment that encourages mindful training. Whether you're starting your morning with yoga, building strength, or simply moving your body after a long journey, this is a space that supports you without pressure or noise.</p>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+    </section>
 
-      <label for="guests">Guests</label>
-      <select id="guests" required>
-        <option value="">Select</option>
-        <option>1</option>
-        <option>2</option>
-      </select>
+    <!-- BOOKING -->
+    <section id="booking" class="section" aria-labelledby="booking-heading">
+      <div class="booking-card">
 
-      <button id="backToStep1">Back</button>
-      <button id="nextToStep3">Review</button>
+        <!-- STEP 1 -->
+        <div id="step1">
+          <h2 id="booking-heading">Choose Experience</h2>
+          <button class="service-card" type="button" data-value="Spa" data-price="50" aria-pressed="false">Spa — £50</button>
+          <button class="service-card" type="button" data-value="Thermal Pools" data-price="30" aria-pressed="false">Thermal Pools — £30</button>
+          <button class="service-card" type="button" data-value="Wellness Gym" data-price="15" aria-pressed="false">Wellness Gym — £15</button>
+          <button id="nextToStep2" disabled>Continue</button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step2" class="hidden" aria-live="polite">
+          <h2>Your Details</h2>
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" autocomplete="given-name" required aria-required="true">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" required aria-required="true">
+          <label for="bookDate">Date</label>
+          <input type="date" id="bookDate" required aria-required="true">
+          <label for="guests">Guests</label>
+          <select id="guests" required aria-required="true">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+          <div class="step-actions">
+            <button id="backToStep1" type="button">Back</button>
+            <button id="nextToStep3" type="button">Review</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step3" class="hidden" aria-live="polite">
+          <h2>Summary</h2>
+          <div class="summary-block">
+            <p><span class="summary-label">Experience</span><span id="sumService"></span></p>
+            <p><span class="summary-label">Total</span><span id="sumPrice"></span></p>
+            <p><span class="summary-label">Name</span><span id="sumName"></span></p>
+            <p><span class="summary-label">Date</span><span id="sumDate"></span></p>
+            <p><span class="summary-label">Guests</span><span id="sumGuests"></span></p>
+          </div>
+          <div class="step-actions">
+            <button id="backToStep2" type="button">Back</button>
+            <button id="submitBooking" type="button">Confirm Booking</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div id="success" class="hidden" role="alert">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h2>You're booked!</h2>
+          <p>A confirmation will be sent to your email.</p>
+          <button id="resetBooking" type="button">Start Over</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <p class="footer-logo">Evergreen Retreat</p>
+          <p>A sanctuary rooted in nature.</p>
+        </div>
+
+        <nav aria-label="Experiences">
+          <h3>Experiences</h3>
+          <ul>
+            <li><a href="#spa">Spa</a></li>
+            <li><a href="#thermal">Thermal Pools</a></li>
+            <li><a href="#gym">Wellness Gym</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="/accessibility.html">Accessibility</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <hr aria-hidden="true">
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+        <nav aria-label="Legal links">
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </nav>
+      </div>
     </div>
+  </footer>
 
-    <div id="step3" class="hidden">
-      <h3>Summary</h3>
-      <p id="sumService"></p>
-      <p id="sumPrice"></p>
+  <script src="js/jquery.js"></script>
+  <script src="js/services.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
 
-      <button id="submitBooking">Confirm</button>
-    </div>
-
-    <div id="success" class="hidden">
-      <h3>Booked ✔</h3>
-      <button id="resetBooking">Start Over</button>
-    </div>
-
-  </div>
-</section>
-
-<script src="js/jquery.js"></script>
-<script src="js/services.js"></script>
 </body>
 </html>
