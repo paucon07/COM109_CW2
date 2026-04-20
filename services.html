@@ -10,23 +10,22 @@
 
 <body>
 
+  <!-- skip link for keyboard/screen reader users -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAVBAR -->
-  <nav id="navbar" class="navbar" aria-label="Main navigation">
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
+      <div class="logo" aria-label="Evergreen Retreat home">Evergreen Retreat</div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
         <li><a href="services.html" aria-current="page">Services</a></li>
       </ul>
-      <a href="home.html" class="logo" aria-label="Evergreen Retreat home">
-        <img src="assets/logo.png" alt="Evergreen Retreat logo" height="55">
-      </a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero hero-bg">
+  <header class="hero hero-bg" role="banner">
     <div class="hero-content">
       <h1>Restore. Revive. Return.</h1>
       <p>Reconnect with nature through curated wellness experiences.</p>
@@ -34,6 +33,7 @@
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="main-content">
 
     <!-- SPA -->
@@ -41,14 +41,14 @@
       <div class="service-img spa-bg" role="img" aria-label="Tranquil spa treatment room"></div>
       <div class="service-text">
         <h2 id="spa-heading">Spa</h2>
-        <p>Step into a sanctuary of calm rooted in the natural world. Our spa draws on botanical ingredients, warm stone, and the healing power of touch to melt away tension and restore your body from the inside out. Each treatment is tailored to you — from deep tissue massages to restorative facials using earth-sourced oils and plant extracts. Leave feeling grounded, renewed, and entirely yourself.</p>
+        <p>Here you can sit back and relax while experiencing the healing power of natural ingredients and expert techniques. Enjoy from our many services including a facial, massage or simply a dip in the hot top or sauna.</p>
         <a href="#booking" class="btn">Book Now</a>
       </div>
     </section>
 
     <!-- THERMAL POOLS -->
     <section id="thermal" class="service-row reverse" aria-labelledby="thermal-heading">
-      <div class="service-img thermal-bg" role="img" aria-label="Natural thermal pool"></div>
+      <div class="service-img thermal-bg" role="img" aria-label="Steaming natural thermal pool"></div>
       <div class="service-text">
         <h2 id="thermal-heading">Thermal Pools</h2>
         <p>Sink into the stillness of our natural thermal pools, warmed by the earth beneath your feet. Mineral-rich waters ease tension from tired muscles, improve circulation, and calm a restless mind. Whether you float beneath the open sky or ease into one of our sheltered indoor pools, the experience is one of quiet immersion in nature's most restorative element. No schedule, no rush — just water, warmth, and stillness.</p>
@@ -58,7 +58,7 @@
 
     <!-- GYM -->
     <section id="gym" class="service-row" aria-labelledby="gym-heading">
-      <div class="service-img gym-bg" role="img" aria-label="Wellness gym with natural light"></div>
+      <div class="service-img gym-bg" role="img" aria-label="Light-filled wellness gym with natural views"></div>
       <div class="service-text">
         <h2 id="gym-heading">Wellness Gym</h2>
         <p>Movement here feels different. Our wellness gym is designed to work with nature, not against it — floor-to-ceiling views of the surrounding landscape, natural light, and thoughtfully chosen equipment that encourages mindful training. Whether you're starting your morning with yoga, building strength, or simply moving your body after a long journey, this is a space that supports you without pressure or noise.</p>
@@ -68,32 +68,46 @@
 
     <!-- BOOKING -->
     <section id="booking" class="section" aria-labelledby="booking-heading">
-      <div class="booking-card">
+      <div class="booking-card" role="region" aria-label="Booking form">
 
         <!-- STEP 1 -->
         <div id="step1">
           <h2 id="booking-heading">Choose Experience</h2>
-          <button class="service-card" type="button" data-value="Spa" data-price="50" aria-pressed="false">Spa — £50</button>
-          <button class="service-card" type="button" data-value="Thermal Pools" data-price="30" aria-pressed="false">Thermal Pools — £30</button>
-          <button class="service-card" type="button" data-value="Wellness Gym" data-price="15" aria-pressed="false">Wellness Gym — £15</button>
-          <button id="nextToStep2" disabled>Continue</button>
+          <div role="group" aria-labelledby="booking-heading">
+            <button class="service-card" type="button" data-value="Spa" data-price="50" aria-pressed="false">
+              Spa — £50
+            </button>
+            <button class="service-card" type="button" data-value="Thermal Pools" data-price="30" aria-pressed="false">
+              Thermal Pools — £30
+            </button>
+            <button class="service-card" type="button" data-value="Wellness Gym" data-price="15" aria-pressed="false">
+              Wellness Gym — £15
+            </button>
+          </div>
+          <button id="nextToStep2" disabled aria-disabled="true">Continue</button>
         </div>
 
         <!-- STEP 2 -->
         <div id="step2" class="hidden" aria-live="polite">
           <h2>Your Details</h2>
+          <div id="form-error" class="form-error hidden" role="alert" aria-live="assertive"></div>
+
           <label for="firstName">First Name</label>
           <input id="firstName" type="text" autocomplete="given-name" required aria-required="true">
+
           <label for="email">Email</label>
           <input id="email" type="email" autocomplete="email" required aria-required="true">
+
           <label for="bookDate">Date</label>
           <input type="date" id="bookDate" required aria-required="true">
+
           <label for="guests">Guests</label>
           <select id="guests" required aria-required="true">
             <option value="">Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
           </select>
+
           <div class="step-actions">
             <button id="backToStep1" type="button">Back</button>
             <button id="nextToStep3" type="button">Review</button>
@@ -117,7 +131,7 @@
         </div>
 
         <!-- SUCCESS -->
-        <div id="success" class="hidden" role="alert">
+        <div id="success" class="hidden" role="alert" aria-live="assertive">
           <div class="success-icon" aria-hidden="true">✓</div>
           <h2>You're booked!</h2>
           <p>A confirmation will be sent to your email.</p>
@@ -130,13 +144,14 @@
   </main>
 
   <!-- FOOTER -->
-  <footer aria-label="Site footer">
+  <footer id="site-footer" aria-label="Site footer">
     <div class="footer-inner">
+
       <div class="footer-grid">
 
         <div class="footer-brand">
           <p class="footer-logo">Evergreen Retreat</p>
-          <p>A sanctuary rooted in nature.</p>
+          <p>A sanctuary rooted in nature. Wellness experiences designed to restore body and mind.</p>
         </div>
 
         <nav aria-label="Experiences">
@@ -145,6 +160,7 @@
             <li><a href="#spa">Spa</a></li>
             <li><a href="#thermal">Thermal Pools</a></li>
             <li><a href="#gym">Wellness Gym</a></li>
+            <li><a href="#booking">Book Now</a></li>
           </ul>
         </nav>
 
@@ -153,7 +169,17 @@
           <ul>
             <li><a href="/privacy-policy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
             <li><a href="/accessibility.html">Accessibility</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/faq.html">FAQs</a></li>
           </ul>
         </nav>
 
@@ -166,8 +192,11 @@
         <nav aria-label="Legal links">
           <a href="/privacy-policy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
+          <a href="/cookie-policy.html">Cookies</a>
+          <a href="/sitemap.xml">Sitemap</a>
         </nav>
       </div>
+
     </div>
   </footer>
 
