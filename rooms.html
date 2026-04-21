@@ -1,70 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="css/rooms.css">
-    <title>Evergreen Retreat - Rooms</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evergreen Retreat - Rooms</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/rooms.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
 </head>
 
 <body>
+
 <!-- navbar -->
-<nav id="navbar" class="navbar">
+<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
-
-    <div class="logo">
-      Evergreen Retreat
+    <div class="logo" aria-label="Evergreen Retreat home">
+      <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
     </div>
-
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="rooms.html">Rooms</a></li>
-      <!-- add other links here-->
+      <li><a href="rooms.html" aria-current="page">Rooms</a></li>
     </ul>
-
   </div>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <img class="icon" src="assets/sun.png" alt="">
+  </button>
 </nav>
 
+<!-- rooms -->
 <div class="rooms-container">
 
-    <div class="room" onclick="selectRoom(this, 'Standard Room', 80)">
-        <h2>Standard Room</h2>
-        <p>A cosy room with all the essentials for a comfortable stay.</p>
-        <p>Price: £80 per night</p>
-    </div>
+  <div class="room" onclick="selectRoom(this, 'Standard Room', 80)">
+    <h2>Standard Room</h2>
+    <p>A cosy room with all the essentials for a comfortable stay.</p>
+    <p>Price: £80 per night</p>
+  </div>
 
-    <div class="room" onclick="selectRoom(this, 'Deluxe Room', 120)">
-        <h2>Deluxe Room</h2>
-        <p>A spacious room with premium furnishings and premium views.</p>
-        <p>Price: £120 per night</p>
-    </div>
+  <div class="room" onclick="selectRoom(this, 'Deluxe Room', 120)">
+    <h2>Deluxe Room</h2>
+    <p>A spacious room with premium furnishings and premium views.</p>
+    <p>Price: £120 per night</p>
+  </div>
 
-    <div class="room" onclick="selectRoom(this, 'Suite', 200)">
-        <h2>Suite</h2>
-        <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
-        <p>Price: £200 per night</p>
-    </div>
+  <div class="room" onclick="selectRoom(this, 'Suite', 200)">
+    <h2>Suite</h2>
+    <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
+    <p>Price: £200 per night</p>
+  </div>
 
 </div>
 
+<!-- selection -->
 <p id="selectedRoom">No room selected</p>
 
-<button onclick="showForm()">Confirm Selection</button>
-
-<div id="bookingForm">
-    <h2>Booking Details</h2>
-
-    <label>Check-in date:</label>
-    <input id="checkin" type="date">
-
-    <label>Check-out date:</label>
-    <input id="checkout" type="date">
-
-    <label>Guests:</label>
-    <input id="guests" type="number" min="1" value="1">
-
-    <button class="confirm-btn">Submit Booking</button>
+<div class="confirm-selection">
+  <button onclick="showForm()">Confirm Selection</button>
 </div>
 
+<!-- form -->
+<div id="bookingForm">
+  <h2>Booking Details</h2>
+
+  <label>Check-in date:</label>
+  <input id="checkin" type="date">
+
+  <label>Check-out date:</label>
+  <input id="checkout" type="date">
+
+  <label>Guests:</label>
+  <input id="guests" type="number" min="1" value="1">
+
+<button class="confirm-btn" onclick="submitBooking()">Submit Booking</button>
+</div>
+
+<!-- footer -->
+<footer id="site-footer" aria-label="Site footer">
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <!-- brand -->
+      <div class="footer-brand">
+        <h2 class="footer-logo">Evergreen Retreat</h2>
+        <p>
+          A sanctuary rooted in nature. Wellness experiences designed
+          to restore body and mind.
+        </p>
+        <a href="/contact.html" class="footer-contact-link">Contact Us</a>
+      </div>
+
+      <!-- experiences -->
+      <nav aria-label="Experiences">
+        <h3>Experiences</h3>
+        <ul>
+          <li><a href="services.html#spa">Spa</a></li>
+          <li><a href="services.html#thermal">Thermal Pools</a></li>
+          <li><a href="services.html#gym">Wellness Gym</a></li>
+        </ul>
+      </nav>
+
+      <!-- newsletter -->
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to receive updates and special offers.</p>
+
+        <form class="email-form" novalidate>
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Enter your email"
+          >
+          <button type="submit">Subscribe</button>
+          <span class="email-error"></span>
+        </form>
+      </div>
+
+    </div>
+
+    <hr aria-hidden="true">
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/formValidation.js"></script>
+<script src="js/darkmode.js"></script>
 <script src="js/rooms.js"></script>
 
 </body>
