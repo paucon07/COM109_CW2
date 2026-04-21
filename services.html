@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evergreen Retreat – Services</title>
   <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -13,14 +14,13 @@
   <!-- skip link for keyboard/screen reader users -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+  <!-- old navbar -->
+  <!-- <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="logo" aria-label="Evergreen Retreat home">
         Evergreen Retreat
       </div>
 
-      <!-- Hamburger button (mobile) -->
       <button
         id="nav-toggle"
         class="nav-toggle"
@@ -37,7 +37,23 @@
         <li><a href="rooms.html">Rooms</a></li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
+
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="logo" aria-label="Evergreen Retreat home">
+        <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li><a href="rooms.html" aria-current="page">Rooms</a></li>
+      </ul>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <img class="icon" src="assets/sun.png" alt="">
+    </button>
+</nav>
 
   <!-- HERO -->
   <header class="hero hero-bg" role="banner">
@@ -171,45 +187,59 @@
 
   <!-- FOOTER -->
   <footer id="site-footer" aria-label="Site footer">
-    <div class="footer-inner">
+  <div class="footer-inner">
 
-      <div class="footer-grid">
+    <div class="footer-grid">
 
-        <div class="footer-brand">
-          <p class="footer-logo">Evergreen Retreat</p>
-          <p>A sanctuary rooted in nature. Wellness experiences designed to restore body and mind.</p>
-        </div>
+      <!-- brand -->
+      <div class="footer-brand">
+        <h2 class="footer-logo">Evergreen Retreat</h2>
+          <p>
+            A sanctuary rooted in nature. Wellness experiences designed
+            to restore body and mind.
+          </p>
 
-        <nav aria-label="Experiences">
-          <h3>Experiences</h3>
-          <ul>
-            <li><a href="#spa">Spa</a></li>
-            <li><a href="#thermal">Thermal Pools</a></li>
-            <li><a href="#gym">Wellness Gym</a></li>
-            <li><a href="#booking">Book Now</a></li>
-          </ul>
-        </nav>
-
-        <nav aria-label="Company">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/faq.html">FAQs</a></li>
-          </ul>
-        </nav>
+        <a href="/contact.html" class="footer-contact-link">Contact Us</a>
 
       </div>
 
-      <hr aria-hidden="true">
+      <!-- experiences -->
+      <nav aria-label="Experiences">
+        <h3>Experiences</h3>
+        <ul>
+          <li><a href="services.html#spa">Spa</a></li>
+          <li><a href="services.html#thermal">Thermal Pools</a></li>
+          <li><a href="services.html#gym">Wellness Gym</a></li>
+        </ul>
+      </nav>
 
-      <div class="footer-bottom">
-        <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+      <!-- newsletter -->
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to receive updates and special offers.</p>
+
+        <form class="email-form" novalidate>
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Enter your email"
+          >
+          <button type="submit">Subscribe</button>
+          <span class="email-error"></span>
+        </form>
       </div>
 
     </div>
-  </footer>
 
+    <hr aria-hidden="true">
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+  <script src="js/darkmode.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/services.js"></script>
   <script src="js/darkmode.js"></script>
