@@ -34,6 +34,17 @@ body {
   margin-top: 2rem;
 }
 
+/*!room images*/
+.room img {
+    width: calc(100% + 3rem);
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    display: block;
+}
+
+
 /* !room card */
 .room {
   background: var(--surface);
@@ -44,6 +55,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  overflow: hidden;
 }
 
 .room:hover {
