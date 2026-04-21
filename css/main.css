@@ -40,8 +40,6 @@ body {
   background: var(--bg);
   color: var(--text);
   font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   padding-top: 80px; /* navbar space */
 }
 
