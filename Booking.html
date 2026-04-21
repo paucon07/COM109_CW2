@@ -6,28 +6,29 @@
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image" href="assets/favicon.png">
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="navbar">
+    
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-
-            <div class="logo">
-            Evergreen Retreat
+            <div class="logo" aria-label="Evergreen Retreat home">
+                <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
             </div>
-
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="rooms.html">Rooms</a></li>
-                <li><a href="Booking.html">Bookings</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <!-- add other links here-->
+                <li><a href="services.html" aria-current="page">Services</a></li>
+                <li><a href="rooms.html" aria-current="page">Rooms</a></li>
+                <li><a href="Booking.html" aria-current="page">Booking</a></li>
+                <li><a href="contact.html" aria-current="page">Contact Us</a></li>
             </ul>
-
-         </div>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <img class="icon" src="assets/sun.png" alt="">
+        </button>
     </nav>
 
     <!-- MAIN CONTENT -->
@@ -229,8 +230,8 @@
                 <div style="margin-bottom:1.5rem;">
                     <label>Room</label><br>
                     <select style="width:100%;">
-                        <option>Single</option>
-                        <option>Double</option>
+                        <option>Standard</option>
+                        <option>Deluxe</option>
                         <option>Suite</option>
                     </select>
                     <br><br>
@@ -317,11 +318,65 @@
             
 
         </section>
+        
+        <footer id="site-footer" aria-label="Site footer">
+            <div class="footer-inner">
+
+                <div class="footer-grid">
+
+                    <!-- brand -->
+                    <div class="footer-brand">
+                        <h2 class="footer-logo">Evergreen Retreat</h2>
+                        <p>
+                            A sanctuary rooted in nature. Wellness experiences designed
+                            to restore body and mind.
+                        </p>
+
+                        <a href="/contact.html" class="footer-contact-link">Contact Us</a>
+
+                    </div>
+
+                    <!-- experiences -->
+                    <nav aria-label="Experiences">
+                        <h3>Experiences</h3>
+                        <ul>
+                            <li><a href="services.html#spa">Spa</a></li>
+                            <li><a href="services.html#thermal">Thermal Pools</a></li>
+                            <li><a href="services.html#gym">Wellness Gym</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- newsletter -->
+                    <div class="footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to receive updates and special offers.</p>
+
+                        <form class="email-form" novalidate>
+                            <input
+                                type="email"
+                                class="email-input"
+                                placeholder="Enter your email"
+                            >
+                            <button type="submit">Subscribe</button>
+                            <span class="email-error"></span>
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr aria-hidden="true">
+
+                <div class="footer-bottom">
+                    <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+                </div>
+
+            </div>
+        </footer>
 
     </main>
 
     <!-- JS -->
     <script src="js/bookingNavi.js"></script>
-
+    <script src="js/darkmode.js"></script>
 </body>
 </html>
