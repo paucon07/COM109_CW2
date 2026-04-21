@@ -1,60 +1,31 @@
+
 :root {
   --blue: #2e86c1;
   --light: #f7fbff;
   --dark: #1a3a4a;
+
+  --bg: var(--light);
+  --surface: #ffffff;
+  --text: var(--dark);
+}
+
+/* !dark mode*/
+html.dark-mode {
+  --bg: #0f1c1f;
+  --surface: #162a2e;
+  --text: #d7e6e3;
+  --blue: #3f8f95;
 }
 
 body {
   font-family: 'Jost', sans-serif;
-  background: var(--light);
-  color: var(--dark);
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
-  padding: 2rem;
-}
-/* navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 80px;
-  background: rgba(255,255,255,0.95);
-  display: flex;
-  align-items: center;
-  z-index: 1000;
+  padding-top: 80px;
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 0 2rem;
-  gap: 2rem;
-}
-
-.logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  margin-right: auto;
-}
-
-.nav-links {
-  position: static;
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--dark);
-  font-size: 0.95rem;
-}
-
-.nav-links a:hover {
-  color: var(--blue);
-}
-/* layout (like your original cards, NOT stacked full width) */
+/* !rooms layout */
 .rooms-container {
   display: flex;
   gap: 1.5rem;
@@ -63,9 +34,9 @@ body {
   margin-top: 2rem;
 }
 
-/* room card */
+/* !room card */
 .room {
-  background: white;
+  background: var(--surface);
   padding: 1.5rem;
   border-radius: 10px;
   width: 260px;
@@ -79,51 +50,29 @@ body {
   transform: translateY(-6px);
 }
 
-/* selected state */
 .room.selected {
   border: 2px solid var(--blue);
   box-shadow: 0 12px 30px rgba(46, 134, 193, 0.25);
 }
 
-/* text */
+/* !selection */
 #selectedRoom {
   text-align: center;
   margin-top: 2rem;
   font-size: 1.1rem;
 }
 
-/* buttons */
-button {
-  display: block;
-  margin: 1rem auto;
-  padding: 0.8rem 1.8rem;
-  border: none;
-  border-radius: 30px;
-  background: var(--blue);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #1f6fa5;
-}
-
-/* booking form */
+/* !form */
 #bookingForm {
   display: none;
   margin-top: 2rem;
-  background: white;
+  background: var(--surface);
   padding: 2rem;
   border-radius: 10px;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-#bookingForm h2 {
-  margin-bottom: 1rem;
 }
 
 #bookingForm label {
@@ -136,10 +85,34 @@ button:hover {
   padding: 0.6rem;
   margin-top: 0.3rem;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: var(--surface);
+  color: var(--text);
 }
 
-.confirm-btn {
-  width: 100%;
+/* !footer text  */
+footer {
+  color: var(--text);
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+/* !confirm selection button */
+.confirm-selection {
+  text-align: center;
   margin-top: 1.5rem;
+}
+
+.confirm-selection button {
+  display: inline-block;
+  margin: 0;
+}
+
+/* !submit booking button */
+.confirm-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-left: 0;
 }

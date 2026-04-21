@@ -1,5 +1,4 @@
 $(function () {
-
   // navbar scroll effect
   $(window).on('scroll', function () {
     $('#navbar').toggleClass('scrolled', $(this).scrollTop() > 50);
@@ -33,8 +32,11 @@ $(function () {
   // continuous scroll
   const inner = document.querySelector('.reviews-inner');
 if (inner) {
-  // duplicate content for seamless loop
+
+  if (!inner.dataset.duplicated) { // make sure this only runs once
   inner.innerHTML += inner.innerHTML;
+  inner.dataset.duplicated = "true";
+}
 
   let x = 0;
   const speed = 0.2; // pixels per frame
