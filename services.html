@@ -14,31 +14,6 @@
   <!-- skip link for keyboard/screen reader users -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- old navbar -->
-  <!-- <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <div class="logo" aria-label="Evergreen Retreat home">
-        Evergreen Retreat
-      </div>
-
-      <button
-        id="nav-toggle"
-        class="nav-toggle"
-        aria-expanded="false"
-        aria-controls="nav-menu"
-        aria-label="Open navigation menu"
-      >
-        <span class="hamburger" aria-hidden="true"></span>
-      </button>
-
-      <ul class="nav-links" id="nav-menu" role="list">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="services.html" aria-current="page">Services</a></li>
-        <li><a href="rooms.html">Rooms</a></li>
-      </ul>
-    </div>
-  </nav> -->
-
   <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="logo" aria-label="Evergreen Retreat home">
@@ -53,7 +28,7 @@
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
       <img class="icon" src="assets/sun.png" alt="">
     </button>
-</nav>
+  </nav>
 
   <!-- HERO -->
   <header class="hero hero-bg" role="banner">
@@ -109,7 +84,6 @@
           <div class="progress-line"></div>
           <div class="progress-step" id="prog3">3</div>
         </div>
-        <!-- Screen-reader-only live region announces step changes -->
         <p class="sr-only" id="form-progress" aria-live="polite"></p>
 
         <!-- STEP 1 -->
@@ -124,6 +98,11 @@
             </button>
             <button class="service-card" type="button" data-value="Wellness Gym" data-price="15" aria-pressed="false">
               Wellness Gym — £15
+            </button>
+            <button class="service-card service-card--offer" type="button" data-value="Full Wellness Bundle (Spa, Thermal Pools &amp; Wellness Gym)" data-price="60" aria-pressed="false">
+              <span class="offer-badge">Special Offer</span>
+              Full Wellness Bundle — <s>£95</s> <strong>£60</strong>
+              <span class="offer-sub">Spa · Thermal Pools · Wellness Gym</span>
             </button>
           </div>
           <button id="nextToStep2" disabled aria-disabled="true">Continue</button>
@@ -187,62 +166,49 @@
 
   <!-- FOOTER -->
   <footer id="site-footer" aria-label="Site footer">
-  <div class="footer-inner">
+    <div class="footer-inner">
 
-    <div class="footer-grid">
+      <div class="footer-grid">
 
-      <!-- brand -->
-      <div class="footer-brand">
-        <h2 class="footer-logo">Evergreen Retreat</h2>
-          <p>
-            A sanctuary rooted in nature. Wellness experiences designed
-            to restore body and mind.
-          </p>
+        <div class="footer-brand">
+          <h2 class="footer-logo">Evergreen Retreat</h2>
+          <p>A sanctuary rooted in nature. Wellness experiences designed to restore body and mind.</p>
+          <a href="/contact.html" class="footer-contact-link">Contact Us</a>
+        </div>
 
-        <a href="/contact.html" class="footer-contact-link">Contact Us</a>
+        <nav aria-label="Experiences">
+          <h3>Experiences</h3>
+          <ul>
+            <li><a href="services.html#spa">Spa</a></li>
+            <li><a href="services.html#thermal">Thermal Pools</a></li>
+            <li><a href="services.html#gym">Wellness Gym</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to receive updates and special offers.</p>
+          <form class="email-form" novalidate>
+            <input type="email" class="email-input" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+            <span class="email-error"></span>
+          </form>
+        </div>
 
       </div>
 
-      <!-- experiences -->
-      <nav aria-label="Experiences">
-        <h3>Experiences</h3>
-        <ul>
-          <li><a href="services.html#spa">Spa</a></li>
-          <li><a href="services.html#thermal">Thermal Pools</a></li>
-          <li><a href="services.html#gym">Wellness Gym</a></li>
-        </ul>
-      </nav>
+      <hr aria-hidden="true">
 
-      <!-- newsletter -->
-      <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Subscribe to receive updates and special offers.</p>
-
-        <form class="email-form" novalidate>
-          <input
-            type="email"
-            class="email-input"
-            placeholder="Enter your email"
-          >
-          <button type="submit">Subscribe</button>
-          <span class="email-error"></span>
-        </form>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
       </div>
 
     </div>
+  </footer>
 
-    <hr aria-hidden="true">
-
-    <div class="footer-bottom">
-      <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
-    </div>
-
-  </div>
-</footer>
   <script src="js/darkmode.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/services.js"></script>
-  <script src="js/darkmode.js"></script>
   <script>
 
   </script>
