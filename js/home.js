@@ -36,7 +36,7 @@ if (inner) {
   if (!inner.dataset.duplicated) { // make sure this only runs once
   inner.innerHTML += inner.innerHTML;
   inner.dataset.duplicated = "true";
-}
+  }
 
   let x = 0;
   const speed = 0.2; // pixels per frame
