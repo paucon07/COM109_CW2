@@ -45,7 +45,7 @@
 
                 <!-- Progress Bar -->
                 <div style="height: 8px; background: #ddd; border-radius: 10px; overflow: hidden;">
-                    <div id="progress" style="height: 100%; width: 0%; background: var(--blue); transition: 0.3s;"></div>
+                    <div id="progress" style="height: 100%; width: 0%; background: #cee36d; transition: 0.3s;"></div>
                 </div>
 
                 <!-- Labels -->
@@ -62,7 +62,8 @@
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background: #ddd;
+                background: #cee36d;
+                color: #040404;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -70,8 +71,8 @@
             }
 
             .step-circle.active {
-                background: var(--blue);
-                color: white;
+                background: #cee36d;
+                color: #040404;
             }
         </style>
        
@@ -163,7 +164,7 @@
                 </div>
 
             </div>
-  
+            
             <br>
             <div style="text-align:center; margin-top:1.5rem;">
             <button onclick="validateStep1()">Next →</button>
@@ -234,19 +235,13 @@
                         <option>Suite</option>
                     </select>
                     <br><br>
-                    <button>View Rooms</button>
+                    <a href="rooms.html">
+                         <button type="button">View Rooms</button>
+                    </a>
                 </div>
 
-                <!-- Deals -->
-                <div>
-                    <label>Deals</label><br>
-                    <select style="width:100%;">
-                        <option>No Deal</option>
-                        <option>Discount</option>
-                    </select>
-                    <br><br>
-                    <button>View Deals</button>
-                </div>
+                
+                
 
             </div>
             <br>
@@ -308,12 +303,14 @@
 
             <br>
             <div style="text-align:center; margin-top:1.5rem;">
-            <button onclick="prevStep()">← Back</button>
+                <button onclick="prevStep()">← Back</button>
             </div>
             <div style="text-align:center; margin-top:1.5rem;">
-            <button onclick="validateStep3()">Complete Booking</button>
+                <a href="home.html">
+                    <button onclick="validateStep3()">Complete Booking</button>
+                </a>
             </div>
-
+            
             
 
         </section>

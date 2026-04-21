@@ -1,3 +1,4 @@
+console.log("JS loaded");
 let currentStep = 1;
 
 function showStep(step) {
@@ -25,6 +26,7 @@ function prevStep() {
 }
 
 function updateProgress() {
+    console.log("Updating progress. Current step:", currentStep);
     const progress = document.getElementById("progress");
     const circles = document.querySelectorAll(".step-circle");
 
@@ -89,9 +91,10 @@ function validateStep1() {
         alert(errorMessage);
         return;
     }
-
+    console.log("Updating progress. Current step:");
     // If all valid → proceed
     nextStep();
+    
 }
 
 function validateStep2() {
@@ -137,6 +140,7 @@ function validateStep2() {
 
     // If valid → proceed
     nextStep();
+    
 }
 
 const today = new Date().toISOString().split("T")[0];
