@@ -56,9 +56,9 @@
     <p>Price: £120/night</p>
   </div>
 
-  <div id="suite" class="room" onclick="selectRoom(this, 'Suite',180)">
+  <div id="suite" class="room" onclick="selectRoom(this, 'Suite ',180)">
     <img src="assets/slide3.jpg" alt="Suite">
-    <h2>Suite</h2>
+    <h2>Suite (Most Popular!)</h2>
     <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
     <s>Price: £200/night</s> <br>
     <u>Limited Price: £180/night</u>
@@ -145,6 +145,8 @@
 <script src="js/formValidation.js"></script>
 <script src="js/darkmode.js"></script>
 <script src="js/rooms.js"></script>
-
+<script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
