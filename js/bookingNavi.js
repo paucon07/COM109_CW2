@@ -1,4 +1,4 @@
-console.log("JS loaded");
+
 let currentStep = 1;
 
 function showStep(step) {
@@ -26,7 +26,7 @@ function prevStep() {
 }
 
 function updateProgress() {
-    console.log("Updating progress. Current step:", currentStep);
+    
     const progress = document.getElementById("progress");
     const circles = document.querySelectorAll(".step-circle");
 
