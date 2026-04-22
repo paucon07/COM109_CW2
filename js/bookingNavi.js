@@ -77,8 +77,79 @@ function validateStep1() {
     }
 
     // Email validation (must contain @)
+    //if (!email.value.includes("@")) {
+    //    errorMessage += "Email must contain '@'\n";
+    //}
+    if (email.value === "") {
+        errorMessage += "Email cannot be empty";
+        alert(errorMessage)
+        return;
+    }
+
+    if (email.value.includes(" ")) {
+        errorMessage += "Email cannot contain spaces";
+        alert(errorMessage)
+        return;
+    }
+
     if (!email.value.includes("@")) {
-        errorMessage += "Email must contain '@'\n";
+        errorMessage += "Email must contain an '@' symbol";
+        alert(errorMessage)
+        return;
+    }
+
+    if (email.value.split("@").length !== 2) {
+        errorMessage += "Email must include only one '@' symbol";
+        alert(errorMessage)
+        return;
+    }
+
+    const splitEmail = email.value.split("@");
+
+    if (splitEmail[0].length === 0) {
+        errorMessage += "Email must have characters before '@'";
+        alert(errorMessage)
+        return;
+    }
+
+    if (splitEmail[0].length < 2) {
+        errorMessage += "Email username is too short";
+        alert(errorMessage)
+        return;
+    }
+
+    if (splitEmail[1].length === 0) {
+        errorMessage += "Email must have a domain after '@'";
+        alert(errorMessage)
+        return;
+    }
+
+    if (!splitEmail[1].includes(".")) {
+        errorMessage += "Domain must include a '.'";
+        alert(errorMessage)
+        return;
+    }
+
+    if (splitEmail[1].startsWith(".")) {
+        errorMessage += "Domain cannot start with a '.'";
+        alert(errorMessage)
+        return;
+    }
+
+    const splitDomain = splitEmail[1].split(".");
+
+    if (splitDomain[1].length < 2) {
+        errorMessage += "Domain extension must be at least 2 characters";
+        alert(errorMessage)
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!emailPattern.test(email.value)) {
+        errorMessage += "Email format is invalid";
+        alert(errorMessage)
+        return;
     }
 
     // Guests validation (min 1)
