@@ -21,23 +21,30 @@
 
 <body class="home-page">
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- navbar -->
 <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <div class="logo" aria-label="Evergreen Retreat home">
-        <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
-      </div>
-      <ul class="nav-links">
-        <li><a href="home.html" aria-current="page">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="rooms.html">Rooms</a></li>
-        <li><a href="Booking.html">Booking</a></li>
-      </ul>
+  <div class="nav-container">
+    <div class="logo">
+      <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
     </div>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-      <img class="icon" src="assets/sun.png" alt="Dark mode">
-    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="home.html" aria-current="page">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="Booking.html">Booking</a></li>
+    </ul>
+  </div>
+  <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
+    <span class="hamburger" aria-hidden="true"></span>
+  </button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <img class="icon" src="assets/sun.png" alt="">
+  </button>
 </nav>
+
+<main id="main-content" tabindex="-1">
 
 <!-- hero -->
 <header class="hero">
@@ -157,6 +164,8 @@
   <h2>Start Your Journey</h2>
   <a href="Booking.html" class="btn">Book Now</a>
 </section>
+
+</main>
 
 <!-- footer -->
 <footer id="site-footer" aria-label="Site footer">
