@@ -1,6 +1,35 @@
 
 let currentStep = 1;
 
+const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      navMenu.classList.toggle('open', !isOpen);
+    });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+       navToggle.setAttribute('aria-expanded', 'false');
+       navToggle.setAttribute('aria-label', 'Open navigation menu');
+       navMenu.classList.remove('open');
+    });
+    });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+      navMenu.classList.remove('open');
+      navToggle.focus();
+    }
+  });
+}
+
 function showStep(step) {
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "none";
@@ -58,112 +87,148 @@ function validateStep1() {
     const email = document.querySelector('input[name="email"]');
     const guests = document.querySelector('input[name="guests"]');
 
+    let isValid = true;
     // Clear previous errors
-    let errorMessage = "";
+    document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
 
     // Name validation (no numbers)
     const nameRegex = /^[A-Za-z]+$/;
-    if (!nameRegex.test(forename.value)) {
-        errorMessage += "Forename must not contain numbers\n";
+    if(forename.value == ""){
+        
+        document.getElementById("forename-error").textContent = "Must enter forename";
+        isValid = false
     }
-    if (!nameRegex.test(surname.value)) {
-        errorMessage += "Surname must not contain numbers\n";
+    else if (!nameRegex.test(forename.value)) {
+        document.getElementById("forename-error").textContent = "Forename cannot contain numbers";
+        isValid = false
+    }
+    if(surname.value == ""){
+        document.getElementById("surname-error").textContent = "Must enter surname";
+        isValid = false
+    }
+    
+    else if (!nameRegex.test(surname.value)) {
+        document.getElementById("surname-error").textContent = "Surname cannot contain numbers";
+        isValid = false
     }
 
     // Phone validation (numbers only)
-    const phoneRegex = /^[0-9]+$/;
-    if (!phoneRegex.test(phone.value)) {
-        errorMessage += "Phone number must not contain letters\n";
+    //const phoneRegex = /^[0-9]+$/;
+    //if (!phoneRegex.test(phone.value)) {
+       // errorMessage += "Phone number must not contain letters\n";
+    //}
+    const phonePattern = /^07\d{9}$/;
+    if (phone.value === "") {     
+        document.getElementById("phone-error").textContent = "Phone number cannot be empty";
+        isValid = false
+    }
+    
+    else if (phone.value.includes(" ")) {
+        document.getElementById("phone-error").textContent = "Phone number cannot contain spaces";
+        isValid = false
     }
 
+    else if (isNaN(phone.value)) {
+        document.getElementById("phone-error").textContent = "Phone number must contain only digits";
+        isValid = false
+    }
+
+    else if (!phone.value.startsWith("07")) {
+        document.getElementById("phone-error").textContent = "Phone number must start with 07";
+        isValid = false
+    }
+
+    else if (phone.value.length < 11) {
+        document.getElementById("phone-error").textContent = "Phone number too short";
+        isValid = false
+    }
+
+    else if (phone.value.length > 11) {
+        document.getElementById("phone-error").textContent = "Phone number too long";
+        isValid = false
+    }
+    
+
+    else if (!phonePattern.test(phone.value)){
+        document.getElementById("phone-error").textContent = "Phone number format is invalid";
+        isValid = false
+    }
     // Email validation (must contain @)
     //if (!email.value.includes("@")) {
     //    errorMessage += "Email must contain '@'\n";
     //}
-    if (email.value === "") {
-        errorMessage += "Email cannot be empty";
-        alert(errorMessage)
-        return;
-    }
-
-    if (email.value.includes(" ")) {
-        errorMessage += "Email cannot contain spaces";
-        alert(errorMessage)
-        return;
-    }
-
-    if (!email.value.includes("@")) {
-        errorMessage += "Email must contain an '@' symbol";
-        alert(errorMessage)
-        return;
-    }
-
-    if (email.value.split("@").length !== 2) {
-        errorMessage += "Email must include only one '@' symbol";
-        alert(errorMessage)
-        return;
-    }
-
     const splitEmail = email.value.split("@");
-
-    if (splitEmail[0].length === 0) {
-        errorMessage += "Email must have characters before '@'";
-        alert(errorMessage)
-        return;
+    if (email.value === "") {
+        document.getElementById("email-error").textContent = "Email cannot be empty";
+        isValid = false
     }
 
-    if (splitEmail[0].length < 2) {
-        errorMessage += "Email username is too short";
-        alert(errorMessage)
-        return;
+    else if (email.value.includes(" ")) {
+        document.getElementById("email-error").textContent = "Email cannot include spaces";
+        isValid = false
     }
 
-    if (splitEmail[1].length === 0) {
-        errorMessage += "Email must have a domain after '@'";
-        alert(errorMessage)
-        return;
+    else if (!email.value.includes("@")) {
+        document.getElementById("email-error").textContent = "Email must include @";
+        isValid = false
     }
 
-    if (!splitEmail[1].includes(".")) {
-        errorMessage += "Domain must include a '.'";
-        alert(errorMessage)
-        return;
+    else if (email.value.split("@").length !== 2) {
+        document.getElementById("email-error").textContent = "Email must only include 1 @";
+        isValid = false
     }
 
-    if (splitEmail[1].startsWith(".")) {
-        errorMessage += "Domain cannot start with a '.'";
-        alert(errorMessage)
-        return;
+    
+
+    else if (splitEmail[0].length === 0) {
+        document.getElementById("email-error").textContent = "Must have characters before @";
+        isValid = false
+    }
+
+    else if (splitEmail[0].length < 2) {
+        document.getElementById("email-error").textContent = "Email username too short";
+        isValid = false
+    }
+
+    else if (splitEmail[1].length === 0) {
+        document.getElementById("email-error").textContent = "Email must have domain after @";
+        isValid = false
+    }
+
+    else if (!splitEmail[1].includes(".")) {
+        document.getElementById("email-error").textContent = "Domain must include '.'";
+        isValid = false
+    }
+
+    else if (splitEmail[1].startsWith(".")) {
+        document.getElementById("email-error").textContent = "Domain cannot start with '.'";
+        isValid = false
     }
 
     const splitDomain = splitEmail[1].split(".");
 
     if (splitDomain[1].length < 2) {
-        errorMessage += "Domain extension must be at least 2 characters";
-        alert(errorMessage)
-        return;
+        document.getElementById("email-error").textContent = "Domain extension must be at least 2 characters";
+        isValid = false
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     if (!emailPattern.test(email.value)) {
-        errorMessage += "Email format is invalid";
-        alert(errorMessage)
-        return;
+        document.getElementById("email-error").textContent = "Email format invalid";
+        isValid = false
     }
 
     // Guests validation (min 1)
     if (guests.value < 1 || guests.value === "") {
-        errorMessage += "Guests must be at least 1\n";
+        document.getElementById("guest-error").textContent = "Must be minimum 1 guest";
+        isValid = false
     }
 
     // If errors exist → show alert
-    if (errorMessage !== "") {
-        alert(errorMessage);
-        return;
-    }
-    console.log("Updating progress. Current step:");
-    // If all valid → proceed
+    if (!isValid) return;
+    
     nextStep();
     
 }
@@ -172,44 +237,38 @@ function validateStep2() {
     const startDateInput = document.querySelector('input[name="start-date"]');
     const endDateInput = document.querySelector('input[name="end-date"]');
 
-    const startDateValue = startDateInput.value;
-    const endDateValue = endDateInput.value;
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
 
-    let errorMessage = "";
+    let isValid = true;
 
-    // Convert to Date objects
+    // Clear errors
+    document.getElementById("start-error").textContent = "";
+    document.getElementById("end-error").textContent = "";
+
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // remove time
+    today.setHours(0,0,0,0);
 
-    const startDate = new Date(startDateValue);
-    const endDate = new Date(endDateValue);
-
-    // Check if dates are selected
-    if (!startDateValue) {
-        errorMessage += "Please select a start date\n";
+    // Start date check
+    if (!startDateInput.value) {
+        document.getElementById("start-error").textContent = "Select a start date";
+        isValid = false;
+    } else if (startDate <= today) {
+        document.getElementById("start-error").textContent = "Must be after today";
+        isValid = false;
     }
 
-    if (!endDateValue) {
-        errorMessage += "Please select an end date\n";
+    // End date check
+    if (!endDateInput.value) {
+        document.getElementById("end-error").textContent = "Select an end date";
+        isValid = false;
+    } else if (endDate <= startDate) {
+        document.getElementById("end-error").textContent = "Must be after start date";
+        isValid = false;
     }
 
-    // Start date must be after today
-    if (startDateValue && startDate <= today) {
-        errorMessage += "Start date must be after today\n";
-    }
+    if (!isValid) return;
 
-    // End date must be after start date
-    if (startDateValue && endDateValue && endDate <= startDate) {
-        errorMessage += "End date must be after start date\n";
-    }
-
-    // Show errors
-    if (errorMessage !== "") {
-        alert(errorMessage);
-        return;
-    }
-
-    // If valid → proceed
     nextStep();
     
 }
@@ -222,37 +281,37 @@ function validateStep3() {
     const cardNameInput = document.querySelector('input[name="card-name"]');
     const cvcInput = document.querySelector('input[name="cvc"]');
 
-    let errorMessage = "";
+    let isValid = true;
 
-    // Remove spaces for validation
+    // Clear errors
+    document.getElementById("card-error").textContent = "";
+    document.getElementById("name-error").textContent = "";
+    document.getElementById("cvc-error").textContent = "";
+
     const cardNumber = cardNumberInput.value.replace(/\s/g, "");
 
-    // Card number: must be 16 digits
-    const cardRegex = /^[0-9]{16}$/;
-    if (!cardRegex.test(cardNumber)) {
-        errorMessage += "Card number must be 16 digits\n";
+    // Card number
+    if (!/^[0-9]{16}$/.test(cardNumber)) {
+        document.getElementById("card-error").textContent = "Must be 16 digits";
+        isValid = false;
     }
 
-    // Name: letters only
-    const nameRegex = /^[A-Za-z\s]+$/;
-    if (!nameRegex.test(cardNameInput.value)) {
-        errorMessage += "Name must contain only letters\n";
+    // Name
+    if (!/^[A-Za-z\s]+$/.test(cardNameInput.value)) {
+        document.getElementById("name-error").textContent = "Letters only";
+        isValid = false;
     }
 
-    // CVC: exactly 3 digits
-    const cvcRegex = /^[0-9]{3}$/;
-    if (!cvcRegex.test(cvcInput.value)) {
-        errorMessage += "CVC must be 3 digits\n";
+    // CVC
+    if (!/^[0-9]{3}$/.test(cvcInput.value)) {
+        document.getElementById("cvc-error").textContent = "3 digits only";
+        isValid = false;
     }
 
-    // Show errors
-    if (errorMessage !== "") {
-        alert(errorMessage);
-        return;
-    }
+    if (!isValid) return;
 
     // Success
-    alert("Booking Complete!");
+    alert("Booking Succesful!");
     window.location.href = "home.html";
 }
 
