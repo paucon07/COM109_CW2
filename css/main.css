@@ -699,6 +699,26 @@ footer nav ul a:hover {
   transform: translateY(0px);
 }
 
+.phone-error.error {
+  color: #ff8a8a;
+  font-weight: 500;
+}
+
+.phone-error {
+  width: 100%;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  min-height: 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.phone-error.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
 /* bottom */
 footer hr {
   border: none;
