@@ -1,59 +1,64 @@
-let selectedRoomDiv = null;
-let selectedRoomName = "";
-let selectedRoomPrice = 0;
+function expandRoom(element) {
+  const isExpanded = element.classList.contains('expanded');
 
-function selectRoom(element, name, price) {
+  // collapse any open card
+  document.querySelectorAll('.room.expanded').forEach(r => r.classList.remove('expanded'));
 
-    // remove previous highlight
-    if (selectedRoomDiv) {
-        selectedRoomDiv.classList.remove("selected");
-    }
-
-    // set new highlight
-    element.classList.add("selected");
-
-    selectedRoomDiv = element;
-    selectedRoomName = name;
-    selectedRoomPrice = price;
-
-    document.getElementById("selectedRoom").innerText =
-        `Selected: ${name} (£${price}/night)`;
+  // if it wasn't already open, open it
+  if (!isExpanded) {
+    element.classList.add('expanded');
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
+function scrollToRooms() {
+  const target = document.getElementById('rooms-list');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+ // hamburger
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-function showForm() {
-    if (!selectedRoomName) {
-        alert("Please select a room first!");
-        return;
-    }
-
-    document.getElementById("bookingForm").style.display = "block";
-
-    document.getElementById("bookingForm").scrollIntoView({
-        behavior: "smooth"
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      navMenu.classList.toggle('open', !isOpen);
     });
-}
-function submitBooking() {
-    const checkin = document.getElementById("checkin").value;
-    const checkout = document.getElementById("checkout").value;
-    const guests = document.getElementById("guests").value;
 
-    if (!checkin || !checkout) {
-        alert("Please fill in your check-in and check-out dates.");
-        return;
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+       navToggle.setAttribute('aria-expanded', 'false');
+       navToggle.setAttribute('aria-label', 'Open navigation menu');
+       navMenu.classList.remove('open');
+    });
+    });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+      navMenu.classList.remove('open');
+      navToggle.focus();
     }
-    if (new Date(checkout) <= new Date(checkin)) {
-        alert("Check-out date must be after check-in date.");
-        return;
+  });
+  }
+  window.addEventListener('scroll', revealRooms);
+
+function revealRooms() {
+  var rooms = document.querySelectorAll('.room');
+  
+  for (var i = 0; i < rooms.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = rooms[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      rooms[i].classList.add('reveal');
     }
-
-    const booking = {
-        room: selectedRoomName,
-        price: selectedRoomPrice,
-        checkin,
-        checkout,
-        guests
-    };
-
-    localStorage.setItem("currentBooking", JSON.stringify(booking));
-    alert(`Booking saved! ${selectedRoomName}, ${guests} guest(s), ${checkin} → ${checkout}`);
+  }
 }
+
+revealRooms(); 

@@ -1,9 +1,7 @@
-
 :root {
   --blue: #2e86c1;
   --light: #f7fbff;
   --dark: #1a3a4a;
-
   --bg: var(--light);
   --surface: #ffffff;
   --text: var(--dark);
@@ -24,97 +22,167 @@ body {
   margin: 0;
   padding-top: 80px;
 }
+/* !hero */
+.page-hero {
+  position: relative;
+  height: 70vh; /* 70% of the screen height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.page-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2; /* puts image at the very back */
+}
+
+.page-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); 
+  z-index: -1; /* between image and text */
+}
+
+.page-hero-content {
+  color: #ffffff !important;
+  z-index: 1;
+}
+
+.page-hero-content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #ffffff !important;
+  margin: 0 0 10px 0;
+}
+
+.page-hero-content p {
+  font-size: 1.2rem;
+  color: #ffffff !important;
+  margin-bottom: 2rem;
+}
 
 /* !rooms layout */
 .rooms-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-top: 2rem;
+  padding: 0 1.5rem;
 }
 
-/*!room images*/
-.room img {
-    width: calc(100% + 3rem);
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-    margin: -1.5rem -1.5rem 1rem -1.5rem;
-    display: block;
+/* !room images in preview style */
+.room-preview img {
+  width: calc(100% + 3rem);
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  display: block;
 }
-
 
 /* !room card */
 .room {
   background: var(--surface);
   padding: 1.5rem;
   border-radius: 10px;
-  width: 260px;
+  width: 100%;
+  max-width: 700px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.06);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   border: 2px solid transparent;
   overflow: hidden;
 }
 
 .room:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-.room.selected {
+/* !expanded cards*/
+.room.expanded {
   border: 2px solid var(--blue);
   box-shadow: 0 12px 30px rgba(46, 134, 193, 0.25);
+  max-width: 1000px;
+  padding: 0; 
 }
 
-/* !selection */
-#selectedRoom {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 1.1rem;
+.room.expanded .room-expanded {
+  display: flex !important;
+  flex-direction: row-reverse; 
+  align-items: stretch; 
+  min-height: 450px; 
 }
 
-/* !form */
-#bookingForm {
-  display: none;
-  margin-top: 2rem;
-  background: var(--surface);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+.room.expanded .room-expanded-text {
+  flex: 1.5;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-#bookingForm label {
+.room.expanded .room-expanded img {
+  flex: 1;
+  width: 45%; /* proportion of card width */
+  height: auto; 
+  min-height: 100%;
+  object-fit: cover; /* crop image */
+  margin: 0; 
+  border-radius: 0 8px 8px 0;
   display: block;
-  margin-top: 1rem;
 }
 
-#bookingForm input {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.2);
-  background: rgba(0,0,0,0.1);;
-  color: var(--text);
+/* !expansion toggles */
+.room-expanded {
+  display: none;
 }
 
-/* !footer text  */
-footer {
-  color: var(--text);
+.room.expanded .room-preview {
+  display: none;
 }
 
-.footer-bottom p {
-  font-size: 0.8rem;
-  opacity: 0.8;
+.room.expanded .room-expanded {
+  display: flex;
 }
-/* !confirm selection button */
+
+.room-preview-text h2,
+.room-expanded-text h2 {
+  margin-top: 0;
+}
+
+.room-price {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.badge {
+  font-size: 0.75rem;
+  background: var(--blue);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
 .confirm-selection {
   text-align: center;
-  margin-top: 1.5rem;
+  margin: 2rem 0 3rem;
 }
 
 .confirm-selection button {
@@ -122,9 +190,22 @@ footer {
   margin: 0;
 }
 
-/* !submit booking button */
-.confirm-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  margin-left: 0;
+/*animations for cards reveal*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.room {
+  opacity: 0;
+}
+
+.room.reveal {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
