@@ -23,6 +23,8 @@
         <li><a href="home.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="Booking.html">Booking</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -100,7 +102,7 @@
             <button id="resetContact" type="button">Send Another</button>
           </div>
 
-          <form id="contactForm" novalidate aria-label="Contact form">
+          <form id="contactForm" novalidate aria-label="Contact form" class="email-form phone-form">
             <div id="contact-error" class="form-error hidden" role="alert" aria-live="assertive"></div>
 
             <div class="form-row">
@@ -196,6 +198,7 @@
     </div>
   </footer>
 
+  <script src="js/formValidation.js"></script>
   <script src="js/darkmode.js"></script>
   <script src="js/jquery.js"></script>
   <script>
