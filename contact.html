@@ -1,27 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evergreen Retreat – Contact</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header>
-  <h1>Contact Form</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="logo" aria-label="Evergreen Retreat home">
+        <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+      </ul>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <img class="icon" src="assets/sun.png" alt="">
+    </button>
   </nav>
-</header> <br>
 
-<form id="contactForm">
-  <label for="email">Email:</label>
-  <input type="email" id="email" required>
-  <span id="emailError"></span>
+  <!-- HERO -->
+  <header class="contact-hero" role="banner">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Get in Touch</p>
+      <h1>We'd Love to Hear From You</h1>
+      <p class="hero-sub">Whether you have a question, a special request, or simply want to learn more — we're here.</p>
+    </div>
+  </header>
 
-  <button type="submit">Submit</button>
-</form>
+  <!-- MAIN -->
+  <main id="main-content">
 
-<script src="js/form-validation.js"></script>
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="contact-grid">
+
+        <!-- INFO PANEL -->
+        <div class="contact-info" aria-label="Contact information">
+          <h2 id="contact-heading">Find Us</h2>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Address</h3>
+              <p>14 Fake Street<br>Belfast, Northern Ireland<br>123 456A</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p><a href="tel:+441234567890">+44 (0)1234 567 890</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p><a href="mailto:hello@evergreenretreat.co.uk">hello@evergreenretreat.co.uk</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="contact-form-wrap">
+          <h2>Send a Message</h2>
+
+          <div id="contact-success" class="contact-success hidden" role="alert" aria-live="assertive">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll be in touch within 24 hours.</p>
+            <button id="resetContact" type="button">Send Another</button>
+          </div>
+
+          <form id="contactForm" novalidate aria-label="Contact form">
+            <div id="contact-error" class="form-error hidden" role="alert" aria-live="assertive"></div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required" aria-hidden="true">*</span></label>
+                <input id="fullName" type="text" autocomplete="name" required aria-required="true" placeholder="Jane Smith">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactEmail">Email Address <span class="required" aria-hidden="true">*</span></label>
+                <input id="contactEmail" type="email" autocomplete="email" required aria-required="true" placeholder="jane@example.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input id="contactPhone" type="tel" autocomplete="tel" placeholder="+44 7700 900000">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="subject">Subject <span class="required" aria-hidden="true">*</span></label>
+                <select id="subject" required aria-required="true">
+                  <option value="">Select a topic</option>
+                  <option value="booking">Booking Enquiry</option>
+                  <option value="services">Services & Treatments</option>
+                  <option value="rooms">Rooms & Accommodation</option>
+                  <option value="events">Events & Group Bookings</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="message" rows="5" required aria-required="true" placeholder="Tell us how we can help…"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn submit-btn">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer" aria-label="Site footer">
+    <div class="footer-inner">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <h2 class="footer-logo">Evergreen Retreat</h2>
+          <p>A sanctuary rooted in nature. Wellness experiences designed to restore body and mind.</p>
+          <a href="contact.html" class="footer-contact-link">Contact Us</a>
+        </div>
+
+        <nav aria-label="Experiences">
+          <h3>Experiences</h3>
+          <ul>
+            <li><a href="services.html#spa">Spa</a></li>
+            <li><a href="services.html#thermal">Thermal Pools</a></li>
+            <li><a href="services.html#gym">Wellness Gym</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to receive updates and special offers.</p>
+          <form class="email-form" novalidate>
+            <input type="email" class="email-input" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+            <span class="email-error"></span>
+          </form>
+        </div>
+
+      </div>
+
+      <hr aria-hidden="true">
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/darkmode.js"></script>
+  <script src="js/jquery.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const errorBox = document.getElementById('contact-error');
+    const successBox = document.getElementById('contact-success');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('fullName').value.trim();
+      const email   = document.getElementById('contactEmail').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        errorBox.textContent = 'Please fill in all required fields.';
+        errorBox.classList.remove('hidden');
+        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        errorBox.textContent = 'Please enter a valid email address.';
+        errorBox.classList.remove('hidden');
+        return;
+      }
+
+      errorBox.classList.add('hidden');
+      form.classList.add('hidden');
+      successBox.classList.remove('hidden');
+      successBox.focus();
+    });
+
+    document.getElementById('resetContact').addEventListener('click', function () {
+      form.reset();
+      form.classList.remove('hidden');
+      successBox.classList.add('hidden');
+      document.getElementById('fullName').focus();
+    });
+  </script>
 
 </body>
 </html>
