@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evergreen Retreat - Rooms</title>
 
-  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/rooms.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="icon" type="image" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -19,94 +19,112 @@
     })();
   </script>
 </head>
-
-<body>
-
 <!-- navbar -->
 <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
-    <div class="logo" aria-label="Evergreen Retreat home">
+    <div class="logo">
       <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-menu">
       <li><a href="home.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="rooms.html" aria-current="page">Rooms</a></li>
+      <li><a href="rooms.html"aria-current="page">Rooms</a></li>
       <li><a href="Booking.html">Booking</a></li>
+      <li><a href="contacts.html">Contact</a></li>
     </ul>
   </div>
+  <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
+    <span class="hamburger" aria-hidden="true"></span>
+  </button>
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-    <img class="icon" src="assets/sun.png" alt="Dark mode">
+    <img class="icon" src="assets/sun.png" alt="">
   </button>
 </nav>
-
+<!-- hero -->
+<header class="page-hero">
+  <img src="assets/roomhero.jpg" alt="Luxury nature retreat" class="page-hero-img">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1>Our Accommodations</h1>
+    <p>Find your perfect sanctuary amidst the trees.</p>
+    <button class="btn" onclick="scrollToRooms()">View Rooms</button>
+  </div>
+</header>
 <!-- rooms -->
-<div class="rooms-container">
+<div id="rooms-list" class="rooms-container">
 
-  <div class="room" onclick="selectRoom(this, 'Standard Room', 80)">
-    <img src="assets/basicroom.jpg" alt="Standard Room">
-    <h2>Standard Room</h2>
-    <p>A cosy room with all the essentials for a comfortable stay.</p>
-    <p>Price: £80/night</p>
+
+  <div class="room" onclick="expandRoom(this)">
+    <div class="room-preview">
+      <img src="assets/basicroom.jpg" alt="Standard Room">
+      <div class="room-preview-text">
+        <h2>Standard Room</h2>
+        <p>A cosy room with all the essentials for a comfortable stay.</p>
+        <span class="room-price">£80/night</span>
+      </div>
+    </div>
+    <div class="room-expanded">
+      <img src="assets/basicroom.jpg" alt="Standard Room">
+      <div class="room-expanded-text">
+        <h2>Standard Room</h2>
+        <p>A comfortable and cosy retreat featuring a king-size bed, ensuite batjhroom, TV, complimentary Wi-Fi, and serene garden views. Perfect for guests seeking a peaceful and affordable stay.</p>
+        <span class="room-price">£80/night</span>
+      </div>
+    </div>
   </div>
 
-  <div class="room" onclick="selectRoom(this, 'Deluxe Room', 120)">
-    <img src="assets/midroom.jpg" alt="Deluxe Room">
-    <h2>Deluxe Room</h2>
-    <p>A spacious room with premium furnishings and premium views.</p>
-    <p>Price: £120/night</p>
+  <div class="room" onclick="expandRoom(this)">
+    <div class="room-preview">
+      <img src="assets/midroom.jpg" alt="Deluxe Room">
+      <div class="room-preview-text">
+        <h2>Deluxe Room</h2>
+        <p>A spacious room with premium furnishings and premium views.</p>
+        <span class="room-price">£120/night</span>
+      </div>
+    </div>
+    <div class="room-expanded">
+      <img src="assets/midroom.jpg" alt="Deluxe Room">
+      <div class="room-expanded-text">
+        <h2>Deluxe Room</h2>
+        <p>Elevate your comfort with a super-king bed, premium linen bedsheets, a cosy sitting area,shower, and stunning natural views. Includes a welcome cocktail/mocktails tray and nightly housekeeping service.</p>
+        <span class="room-price">£120/night</span>
+      </div>
+    </div>
   </div>
 
-  <div id="suite" class="room" onclick="selectRoom(this, 'Suite ',180)">
-    <img src="assets/slide3.jpg" alt="Suite">
-    <h2>Suite (Most Popular!)</h2>
-    <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
-    <s>Price: £200/night</s> <br>
-    <u>Limited Price: £180/night</u>
+  <div id="suite" class="room" onclick="expandRoom(this)">
+    <div class="room-preview">
+      <img src="assets/slide3.jpg" alt="Suite">
+      <div class="room-preview-text">
+        <h2>Suite <span class="badge">Most Popular!</span></h2>
+        <p>Our finest accommodation with a private lounge and luxury bathroom.</p>
+        <span class="room-price"><s>£200/night</s> <u>£180/night</u></span>
+      </div>
+    </div>
+    <div class="room-expanded">
+      <img src="assets/slide3.jpg" alt="Suite">
+      <div class="room-expanded-text">
+        <h2>Suite <span class="badge">Most Popular!</span></h2>
+        <p>Our most luxurious quarters. A private lounge, spa bathroom with spacious bath, locally handcrafted furnishings, and sweeping views across the retreat grounds. Includes daily breakfast with gluten free and vegan options available, a personal butler, and access to our exclusive wellness facilities included.</p>
+        <span class="room-price"><s>£200/night</s> <u>Limited Price: £180/night</u></span>
+      </div>
+    </div>
   </div>
 
 </div>
-
-<!-- selection -->
-<p id="selectedRoom">No room selected</p>
-
+</div>
 <div class="confirm-selection">
-  <button onclick="showForm()">Confirm Selection</button>
+  <a href="Booking.html"><button>Book Now</button></a>
 </div>
-
-<!-- form -->
-<div id="bookingForm">
-  <h2>Booking Details</h2>
-
-  <label>Check-in date:</label>
-  <input id="checkin" type="date">
-
-  <label>Check-out date:</label>
-  <input id="checkout" type="date">
-
-  <label>Guests:</label>
-  <input id="guests" type="number" min="1" value="1">
-
-<button class="confirm-btn" onclick="submitBooking()">Submit Booking</button>
-</div>
-
 <!-- footer -->
 <footer id="site-footer" aria-label="Site footer">
   <div class="footer-inner">
-
     <div class="footer-grid">
-
-      <!-- brand -->
       <div class="footer-brand">
         <h2 class="footer-logo">Evergreen Retreat</h2>
-        <p>
-          A sanctuary rooted in nature. Wellness experiences designed
-          to restore body and mind.
-        </p>
+        <p>A sanctuary rooted in nature. Wellness experiences designed to restore body and mind.</p>
         <a href="/contact.html" class="footer-contact-link">Contact Us</a>
       </div>
-
-      <!-- experiences -->
       <nav aria-label="Experiences">
         <h3>Experiences</h3>
         <ul>
@@ -115,31 +133,20 @@
           <li><a href="services.html#gym">Wellness Gym</a></li>
         </ul>
       </nav>
-
-      <!-- newsletter -->
       <div class="footer-newsletter">
         <h3>Newsletter</h3>
         <p>Subscribe to receive updates and special offers.</p>
-
         <form class="email-form" novalidate>
-          <input
-            type="email"
-            class="email-input"
-            placeholder="Enter your email"
-          >
+          <input type="email" class="email-input" placeholder="Enter your email">
           <button type="submit">Subscribe</button>
           <span class="email-error"></span>
         </form>
       </div>
-
     </div>
-
     <hr aria-hidden="true">
-
     <div class="footer-bottom">
       <p>&copy; <span id="footer-year"></span> Evergreen Retreat. All rights reserved.</p>
     </div>
-
   </div>
 </footer>
 
