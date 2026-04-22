@@ -268,7 +268,12 @@ function validateStep3() {
     }
 
     // Name
-    if (!/^[A-Za-z\s]+$/.test(cardNameInput.value)) {
+    if(cardNameInput.value === ""){
+        document.getElementById("name-error").textContent = "Card name cannot be blank";
+        isValid = false;
+    }
+
+    else if (!/^[A-Za-z\s]+$/.test(cardNameInput.value)) {
         document.getElementById("name-error").textContent = "Letters only";
         isValid = false;
     }
