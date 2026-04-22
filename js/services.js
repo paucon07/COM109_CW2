@@ -20,7 +20,7 @@ $(function () {
         }
     });
 
-      // hamburger
+  // hamburger
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
 
@@ -90,35 +90,6 @@ document.querySelectorAll('.service-row').forEach(row => observer.observe(row));
 
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-/* ── Hamburger nav toggle ── */
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!isOpen));
-        navToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
-        navMenu.classList.toggle('open', !isOpen);
-    });
-
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.setAttribute('aria-expanded', 'false');
-            navToggle.setAttribute('aria-label', 'Open navigation menu');
-            navMenu.classList.remove('open');
-        });
-    });
-
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-            navToggle.setAttribute('aria-expanded', 'false');
-            navToggle.setAttribute('aria-label', 'Open navigation menu');
-            navMenu.classList.remove('open');
-            navToggle.focus();
-        }
-    });
-}
 
 /* ── Booking form: step transitions with focus management ── */
 const progressAnnounce = document.getElementById('form-progress');
