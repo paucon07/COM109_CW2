@@ -52,12 +52,102 @@ body, .card, .review-card, .navbar, footer, .footer-newsletter {
   display: none;
 }
 
+/* scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  top: 0; 
+}
+
+/* hamburger */
+.nav-toggle { 
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle:hover {
+  background: transparent;
+  border-color: var(--primary);
+  transform: none;
+  box-shadow: none;
+}
+
+.nav-toggle:active,
+.nav-toggle:focus {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  position: relative;
+}
+
+.hamburger::before, .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -7px;
+}
+
+.hamburger::after {
+  top: 7px;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 
 /* navbar */
 .navbar {
@@ -629,6 +719,36 @@ footer hr {
 
 /* mobile */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--surface-alt);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--surface-alt);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
 
   .logo {
     margin-right: 0;

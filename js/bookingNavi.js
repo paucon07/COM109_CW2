@@ -1,3 +1,4 @@
+
 let currentStep = 1;
 
 function showStep(step) {
@@ -25,6 +26,7 @@ function prevStep() {
 }
 
 function updateProgress() {
+    
     const progress = document.getElementById("progress");
     const circles = document.querySelectorAll(".step-circle");
 
@@ -89,9 +91,10 @@ function validateStep1() {
         alert(errorMessage);
         return;
     }
-
+    console.log("Updating progress. Current step:");
     // If all valid → proceed
     nextStep();
+    
 }
 
 function validateStep2() {
@@ -137,6 +140,7 @@ function validateStep2() {
 
     // If valid → proceed
     nextStep();
+    
 }
 
 const today = new Date().toISOString().split("T")[0];
@@ -176,8 +180,9 @@ function validateStep3() {
         return;
     }
 
-    // Success (for now just alert)
+    // Success
     alert("Booking Complete!");
+    window.location.href = "home.html";
 }
 
 const cardInput = document.querySelector('input[name="card-number"]');
@@ -190,3 +195,4 @@ cardInput.addEventListener("input", function () {
 
     this.value = value;
 });
+

@@ -45,7 +45,7 @@
 
                 <!-- Progress Bar -->
                 <div style="height: 8px; background: #ddd; border-radius: 10px; overflow: hidden;">
-                    <div id="progress" style="height: 100%; width: 0%; background: var(--blue); transition: 0.3s;"></div>
+                    <div id="progress" style="height: 100%; width: 0%; background: #cee36d; transition: 0.3s;"></div>
                 </div>
 
                 <!-- Labels -->
@@ -62,7 +62,8 @@
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background: #ddd;
+                background: #cee36d;
+                color: #040404;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -70,8 +71,8 @@
             }
 
             .step-circle.active {
-                background: var(--blue);
-                color: white;
+                background: #cee36d;
+                color: #040404;
             }
         </style>
        
@@ -80,47 +81,6 @@
             <div style="max-width:700px; margin:auto;"></div>
             <h2 style="margin-bottom: 0.5rem;">Booking</h2>
             <h2 style="margin-bottom: 1.5rem;">Step 1: Your Details</h2>
-
-            <!--<div class="split" style="gap: 2rem;">
-                <div>
-                    <div style="margin-bottom: 1rem;">
-                    <label>Forename</label><br>
-                    <input type="text" style="width:100%;">
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                    <label>Surname</label><br>
-                    <input type="text" style="width:100%;">
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                    <label>Guests</label><br>
-                    <input type="number" style="width:100%;">
-                    </div>
-                </div>
-
-                <div>
-                    <div style="margin-bottom: 1rem;">
-                    <label>Phone Number</label><br>
-                    <input type="tel" style="width:100%;">
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                    <label>Email</label><br>
-                    <input type="email" style="width:100%;">
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                    <label>Accessibility</label><br>
-                    <textarea></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <div style="text-align:center; margin-top:1.5rem;">
-            <button onclick="nextStep()">Next →</button>
-            </div>-->
 
             <div style="max-width:700px; margin:auto;">
 
@@ -163,7 +123,7 @@
                 </div>
 
             </div>
-  
+            
             <br>
             <div style="text-align:center; margin-top:1.5rem;">
             <button onclick="validateStep1()">Next →</button>
@@ -176,39 +136,6 @@
         <section id="step2" class="section hidden" style="padding: 2rem 1rem;">
             <div style="max-width:700px; margin:auto;"></div>
             <h2 style="margin-bottom: 1.5rem;">Step 2: Your Stay</h2>
-
-            <!--<div class="split" style="gap: 1.5rem;">
-                <div>
-                    <label>Start Date</label><br>
-                    <input type="date"><br><br>
-
-                    <label>End Date</label><br>
-                    <input type="date">
-                </div>
-
-                <div>
-                    <label>Room</label><br>
-                    <select>
-                        <option>Single</option>
-                        <option>Double</option>
-                        <option>Suite</option>
-                    </select>
-                    <br><br>
-                    <button>View Rooms</button>
-
-                    <br><br>
-
-                    <label>Deals</label><br>
-                    <select>
-                        <option>No Deal</option>
-                        <option>Discount</option>
-                        <option>Package</option>
-                    </select>
-                    <br><br>
-                    <button>View Deals</button>
-                </div>
-            </div>-->
-
 
             <div style="max-width:700px; margin:auto;">
 
@@ -234,19 +161,13 @@
                         <option>Suite</option>
                     </select>
                     <br><br>
-                    <button>View Rooms</button>
+                    <a href="rooms.html">
+                         <button type="button">View Rooms</button>
+                    </a>
                 </div>
 
-                <!-- Deals -->
-                <div>
-                    <label>Deals</label><br>
-                    <select style="width:100%;">
-                        <option>No Deal</option>
-                        <option>Discount</option>
-                    </select>
-                    <br><br>
-                    <button>View Deals</button>
-                </div>
+                
+                
 
             </div>
             <br>
@@ -267,22 +188,7 @@
         <section id="step3" class="section hidden" style="padding: 2rem 1rem;">
             <div style="max-width:700px; margin:auto;"></div>
             <h2 style="margin-bottom: 1.5rem;">Step 3: Payment</h2>
-
-            <!--<div class="split" style="gap: 1.5rem;">
-                <div>
-                    <label>Card Number</label><br>
-                    <input type="text"><br><br>
-
-                    <label>Name on Card</label><br>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <label>CVC</label><br>
-                    <input type="text">
-                </div>
-            </div>-->
-            
+         
             <div style="max-width:700px; margin:auto;">
 
                 <!-- Card Number -->
@@ -308,12 +214,14 @@
 
             <br>
             <div style="text-align:center; margin-top:1.5rem;">
-            <button onclick="prevStep()">← Back</button>
+                <button onclick="prevStep()">← Back</button>
             </div>
             <div style="text-align:center; margin-top:1.5rem;">
-            <button onclick="validateStep3()">Complete Booking</button>
+               
+                <button onclick="validateStep3()">Complete Booking</button>
+                
             </div>
-
+            
             
 
         </section>
