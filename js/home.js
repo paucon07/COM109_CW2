@@ -1,8 +1,18 @@
 $(function () {
-  // navbar scroll effect
-  $(window).on('scroll', function () {
-    $('#navbar').toggleClass('scrolled', $(this).scrollTop() > 50);
-  });
+    // scroll reveal animation
+    function revealOnScroll() {
+        $('.reveal').each(function () {
+            const elementTop = $(this).offset().top;
+            const windowBottom = $(window).scrollTop() + $(window).height();
+
+            if (windowBottom > elementTop + 100) {
+                $(this).addClass('visible');
+            }
+        });
+    }
+
+    $(window).on('scroll', revealOnScroll);
+    revealOnScroll();
 
   // hero fade up
   const hero = $('.hero-content');
