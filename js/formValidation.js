@@ -94,3 +94,61 @@ function validateEmail(e) {
 document.querySelectorAll(".email-form").forEach(form => {
     form.addEventListener("submit", validateEmail);
 });
+
+function validatePhone(e) {
+    e.preventDefault();
+    const form = e.target;
+    const phoneInput = form.querySelector(".phone-input");
+    const error = form.querySelector(".phone-error");
+    const phone = phoneInput.value.trim();
+
+    error.className = "phone-error";
+    error.textContent = "";
+
+    if (phone === "") {
+        error.textContent = "Phone number cannot be empty";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    if (phone.includes(" ")) {
+        error.textContent = "Phone number cannot contain spaces";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    if (isNaN(phone)) {
+        error.textContent = "Phone number must contain only digits";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    if (!phone.startsWith("07")) {
+        error.textContent = "Phone number must start with 07";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    if (phone.length < 11) {
+        error.textContent = "Phone number is too short";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    if (phone.length > 11) {
+        error.textContent = "Phone number is too long";
+        error.classList.add("error", "show");
+        return;
+    }
+
+    const phonePattern = /^07\d{9}$/;
+    if (!phonePattern.test(phone)) {
+        error.textContent = "Phone number format is invalid";
+        error.classList.add("error", "show");
+        return;
+    }
+}
+
+document.querySelectorAll(".phone-form").forEach(form => {
+    form.addEventListener("submit", validatePhone);
+});
