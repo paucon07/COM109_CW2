@@ -1,35 +1,6 @@
 
 let currentStep = 1;
 
-const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!isOpen));
-      navToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
-      navMenu.classList.toggle('open', !isOpen);
-    });
-
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-       navToggle.setAttribute('aria-expanded', 'false');
-       navToggle.setAttribute('aria-label', 'Open navigation menu');
-       navMenu.classList.remove('open');
-    });
-    });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Open navigation menu');
-      navMenu.classList.remove('open');
-      navToggle.focus();
-    }
-  });
-}
-
 function showStep(step) {
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "none";
