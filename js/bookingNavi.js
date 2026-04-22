@@ -180,8 +180,9 @@ function validateStep3() {
         return;
     }
 
-    // Success (for now just alert)
+    // Success
     alert("Booking Complete!");
+    window.location.href = "home.html";
 }
 
 const cardInput = document.querySelector('input[name="card-number"]');
@@ -194,3 +195,4 @@ cardInput.addEventListener("input", function () {
 
     this.value = value;
 });
+
