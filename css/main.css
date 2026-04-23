@@ -649,18 +649,6 @@ footer nav ul a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
-/* error message */
-.footer-newsletter .email-error {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-top: 0.45rem;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  min-height: 20px;
-  white-space: normal;
-  word-break: normal;
-}
-
 .footer-newsletter button:disabled {
   background: rgba(255, 255, 255, 0.15);
   color: var(--footer-muted);
@@ -682,6 +670,12 @@ footer nav ul a:hover {
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(-5px);
+}
+
+.contact-form-wrap .email-error {
+  grid-column: unset;
+  margin-top: 0.4rem;
+  min-height: unset;
 }
 
 .email-error.error {

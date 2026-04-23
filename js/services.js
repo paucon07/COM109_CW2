@@ -121,20 +121,54 @@ document.getElementById('backToStep1').addEventListener('click', () =>
     showStep('step2', 'step1', 1, 'Step 1 of 3: Choose an experience.'));
 
 document.getElementById('nextToStep3').addEventListener('click', () => {
-    const firstName = document.getElementById('firstName').value;
-    const email = document.getElementById('email').value;
-    const bookDate = document.getElementById('bookDate').value;
-    const guests = document.getElementById('guests').value;
-    if (!firstName || !email || !bookDate || !guests) return;
+  const firstName = document.getElementById('firstName').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const bookDate  = document.getElementById('bookDate').value;
+  const guests    = document.getElementById('guests').value;
+  const errorBox = document.getElementById('step2-error');
 
-    const total = price * Number(guests);
-    document.getElementById('sumService').textContent = selectedService;
-    document.getElementById('sumPrice').textContent = '£' + total;
-    document.getElementById('sumName').textContent = firstName;
-    document.getElementById('sumDate').textContent = bookDate;
-    document.getElementById('sumGuests').textContent = guests;
+  errorBox.classList.add('hidden');
 
-    showStep('step2', 'step3', 3, 'Step 3 of 3: Review your booking summary.');
+  if (!firstName) {
+    errorBox.textContent = 'Please enter your first name.';
+    errorBox.classList.remove('hidden');
+    return;
+  }
+
+  const emailResult = isValidEmail(email);
+  if (!emailResult.valid) {
+    errorBox.textContent = emailResult.message;
+    errorBox.classList.remove('hidden');
+    return;
+  }
+
+  if (!bookDate) {
+    errorBox.textContent = 'Please select a date.';
+    errorBox.classList.remove('hidden');
+    return;
+  }
+
+  const today = new Date().toISOString().split('T')[0];
+  if (bookDate < today) {
+    errorBox.textContent = 'Please select a future date.';
+    errorBox.classList.remove('hidden');
+    return;
+  }
+
+  if (!guests) {
+    errorBox.textContent = 'Please select the number of guests.';
+    errorBox.classList.remove('hidden');
+    return;
+  }
+
+  const total = price * Number(guests);
+  document.getElementById('sumService').textContent = selectedService;
+  document.getElementById('sumPrice').textContent   = '£' + total;
+  document.getElementById('sumName').textContent    = firstName;
+  document.getElementById('sumDate').textContent    = bookDate;
+  document.getElementById('sumGuests').textContent  = guests;
+
+  showStep('step2', 'step3', 3, 'Step 3 of 3: Review your booking summary.');
 });
 
 document.getElementById('backToStep2').addEventListener('click', () =>

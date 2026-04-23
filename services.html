@@ -124,7 +124,7 @@
         <!-- STEP 2 -->
         <div id="step2" class="hidden" aria-live="polite">
           <h2>Your Details</h2>
-          <div id="form-error" class="form-error hidden" role="alert" aria-live="assertive"></div>
+          <div id="step2-error" class="form-error hidden" role="alert" aria-live="assertive"></div>
 
           <label for="firstName">First Name</label>
           <input id="firstName" type="text" autocomplete="given-name" required aria-required="true">
@@ -202,7 +202,7 @@
           <h3>Newsletter</h3>
           <p>Subscribe to receive updates and special offers.</p>
           <form class="email-form" novalidate>
-            <input type="email" class="email-input" placeholder="Enter your email">
+            <input type="email" name="email" class="email-input" placeholder="Enter your email" autocomplete="email">
             <button type="submit">Subscribe</button>
             <span class="email-error"></span>
           </form>

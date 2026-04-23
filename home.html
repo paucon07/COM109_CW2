@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="icon" type="image" href="assets/favicon.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     (function () {
@@ -24,7 +24,7 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- navbar -->
-<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+<nav id="navbar" class="navbar" aria-label="Main navigation">
   <div class="nav-container">
     <div class="logo">
       <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
@@ -34,7 +34,7 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="rooms.html">Rooms</a></li>
       <li><a href="Booking.html">Booking</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="Booking.html">Contact</a></li>
     </ul>
   </div>
   <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
@@ -204,8 +204,10 @@
         <form class="email-form" novalidate>
           <input
             type="email"
+            name="email"
             class="email-input"
             placeholder="Enter your email"
+            autocomplete="email"
           >
           <button type="submit">Subscribe</button>
           <span class="email-error"></span>

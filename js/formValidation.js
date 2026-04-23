@@ -1,3 +1,4 @@
+// for newsletter
 function validateEmail(e) {
     e.preventDefault();
 
@@ -95,60 +96,47 @@ document.querySelectorAll(".email-form").forEach(form => {
     form.addEventListener("submit", validateEmail);
 });
 
-function validatePhone(e) {
-    e.preventDefault();
-    const form = e.target;
-    const phoneInput = form.querySelector(".phone-input");
-    const error = form.querySelector(".phone-error");
-    const phone = phoneInput.value.trim();
 
-    error.className = "phone-error";
-    error.textContent = "";
+// for forms
+function isValidEmail(email) {
+  if (email === "") return { valid: false, message: "Email cannot be empty" };
+  if (email.includes(" ")) return { valid: false, message: "Email cannot contain spaces" };
+  if (!email.includes("@")) return { valid: false, message: "Email must contain an '@' symbol" };
+  if (email.split("@").length !== 2) return { valid: false, message: "Email must include only one '@' symbol" };
 
-    if (phone === "") {
-        error.textContent = "Phone number cannot be empty";
-        error.classList.add("error", "show");
-        return;
-    }
+  const splitEmail = email.split("@");
 
-    if (phone.includes(" ")) {
-        error.textContent = "Phone number cannot contain spaces";
-        error.classList.add("error", "show");
-        return;
-    }
+  if (splitEmail[0].length === 0) return { valid: false, message: "Email must have characters before '@'" };
+  if (splitEmail[0].length < 2) return { valid: false, message: "Email username is too short" };
+  if (splitEmail[1].length === 0) return { valid: false, message: "Email must have a domain after '@'" };
+  if (!splitEmail[1].includes(".")) return { valid: false, message: "Domain must include a '.'" };
+  if (splitEmail[1].startsWith(".")) return { valid: false, message: "Domain cannot start with a '.'" };
 
-    if (isNaN(phone)) {
-        error.textContent = "Phone number must contain only digits";
-        error.classList.add("error", "show");
-        return;
-    }
+  const splitDomain = splitEmail[1].split(".");
+  if (splitDomain[1].length < 2) return { valid: false, message: "Domain extension must be at least 2 characters" };
 
-    if (!phone.startsWith("07")) {
-        error.textContent = "Phone number must start with 07";
-        error.classList.add("error", "show");
-        return;
-    }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailPattern.test(email)) return { valid: false, message: "Email format is invalid" };
 
-    if (phone.length < 11) {
-        error.textContent = "Phone number is too short";
-        error.classList.add("error", "show");
-        return;
-    }
-
-    if (phone.length > 11) {
-        error.textContent = "Phone number is too long";
-        error.classList.add("error", "show");
-        return;
-    }
-
-    const phonePattern = /^07\d{9}$/;
-    if (!phonePattern.test(phone)) {
-        error.textContent = "Phone number format is invalid";
-        error.classList.add("error", "show");
-        return;
-    }
+  return { valid: true, message: "" };
 }
 
-document.querySelectorAll(".phone-form").forEach(form => {
-    form.addEventListener("submit", validatePhone);
-});
+
+function isValidPhone(phone, optional = false) {
+  if (phone === "") {
+    return optional
+      ? { valid: true, message: "" }
+      : { valid: false, message: "Phone number cannot be empty" };
+  }
+
+  if (phone.includes(" ")) return { valid: false, message: "Phone number cannot contain spaces" };
+  if (isNaN(phone)) return { valid: false, message: "Phone number must contain only digits" };
+  if (!phone.startsWith("07")) return { valid: false, message: "Phone number must start with 07" };
+  if (phone.length < 11) return { valid: false, message: "Phone number is too short" };
+  if (phone.length > 11) return { valid: false, message: "Phone number is too long" };
+
+  const phonePattern = /^07\d{9}$/;
+  if (!phonePattern.test(phone)) return { valid: false, message: "Phone number format is invalid" };
+
+  return { valid: true, message: "" };
+}

@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="css/rooms.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" type="image" href="assets/favicon.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
@@ -20,7 +20,7 @@
   </script>
 </head>
 <!-- navbar -->
-<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+<nav id="navbar" class="navbar" aria-label="Main navigation">
   <div class="nav-container">
     <div class="logo">
       <img id="sitelogo" src="assets/lightmodelogo.png" alt="Evergreen Retreat" style="height: 75px; width: auto; display: block;">
@@ -137,7 +137,7 @@
         <h3>Newsletter</h3>
         <p>Subscribe to receive updates and special offers.</p>
         <form class="email-form" novalidate>
-          <input type="email" class="email-input" placeholder="Enter your email">
+          <input type="email" name="email" class="email-input" placeholder="Enter your email" autocomplete="email">
           <button type="submit">Subscribe</button>
           <span class="email-error"></span>
         </form>
